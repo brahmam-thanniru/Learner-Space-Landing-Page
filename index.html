@@ -425,6 +425,219 @@
             50% { transform: scale(1.5); opacity: 0.5; }
         }
 
+        /* Problem Section */
+        .problem-section {
+            min-height: 80vh;
+            padding: 100px 50px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .problem-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            min-height: 90vh;
+            padding: 100px 50px;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .solution-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), #ff8c5a);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.2);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), #ff8c5a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover .solution-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Market Insights Section */
+        .insights-section {
+            min-height: 80vh;
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: 150px 150px;
+            animation: backgroundFloat 20s linear infinite;
+        }
+
+        .insights-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .insight-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .insight-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .insight-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .insight-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #ffd89b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Community Section */
+        .community-section {
+            min-height: 80vh;
+            padding: 100px 50px;
+            background: white;
+            position: relative;
+        }
+
+        .community-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .benefit-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .benefit-item:hover {
+            background: var(--secondary-color);
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
         /* Enhanced How It Works Section */
         .how-works-section {
             min-height: 100vh;
@@ -1230,79 +1443,105 @@
             to { opacity: 1; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            
-            .features-container {
-                flex-direction: column;
-            }
-            
-            .ready-container {
-                flex-direction: column;
-            }
-            
-            .cta-content {
-                flex-direction: column;
-                text-align: center;
-            }
+        /* ---------------------------------------------------- */
+/*  MOBILE / SMALL-TABLET  RESPONSIVE  OVERRIDES        */
+/* ---------------------------------------------------- */
 
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+/* 0. Reset base font-size for easier rem maths */
+html { font-size: 16px; }
+body { -webkit-font-smoothing: antialiased; }
 
-            .cta-phones {
-                width: 100%;
-                height: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-            }
+/* 1. ≤ 768 px (phones in portrait + small tablets) */
+@media (max-width: 768px) {
+    /* --- NAV --- */
+    nav {
+        padding: 12px 20px;
+    }
+    .nav-links,
+    .nav-buttons { display: none; }          /* classic “hamburger later” */
+    .logo { font-size: 1.4rem; }
 
-            .cta-phone {
-                position: relative;
-                width: 200px;
-                height: 400px;
-                border-radius: 25px;
-                border: 6px solid #1a1a1a;
-                animation: none;
-            }
+    /* --- HERO --- */
+    .hero-section {
+        flex-direction: column;
+        padding: 100px 20px 60px;
+        text-align: center;
+        min-height: auto;
+    }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1rem; }
+    .download-buttons { flex-direction: column; align-items: center; gap: 15px; }
+    .phone-mockup {
+        width: 200px;
+        height: 400px;
+        margin-top: 40px;
+    }
 
-            .cta-phone:first-child,
-            .cta-phone:last-child {
-                right: auto;
-                top: auto;
-                transform: none;
-            }
-        }
+    /* --- GLOBAL SECTIONS --- */
+    .section-title { font-size: 1.8rem; }
+    .section-subtitle { font-size: 0.95rem; padding: 0 10px; }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .download-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .phone-mockup {
-                width: 280px;
-                height: 560px;
-            }
-        }
+    /* --- PROBLEM / SOLUTION / COMMUNITY --- */
+    .problem-section,
+    .solution-section,
+    .community-section,
+    .insights-section { padding: 60px 20px; }
+
+    .solution-grid,
+    .community-benefits,
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* --- HOW-IT-WORKS --- */
+    .how-works-section { padding: 60px 20px; }
+    .features-container { flex-direction: column; gap: 40px; }
+    .center-phone { width: 200px; height: 400px; }
+
+    /* --- READY SECTION --- */
+    .ready-section { padding: 60px 20px; }
+    .ready-container { flex-direction: column; gap: 40px; }
+    .phones-stack { width: 100%; height: 320px; }
+    .stacked-phone {
+        width: 180px;
+        height: 360px;
+    }
+
+    /* --- TESTIMONIALS --- */
+    .testimonials-section { padding: 60px 20px; }
+    .testimonials-header { text-align: center; }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* --- CTA --- */
+    .cta-section { padding: 60px 20px; border-radius: 30px 30px 0 0; }
+    .cta-content { flex-direction: column; text-align: center; }
+    .cta-phone {
+        width: 160px;
+        height: 320px;
+    }
+
+    /* --- FOOTER --- */
+    footer { padding: 50px 20px 20px; }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .social-links { justify-content: center; }
+}
+
+/* 2. very small phones ≤ 480 px */
+@media (max-width: 480px) {
+    html { font-size: 14px; }           /* slightly smaller type */
+    .hero-content h1 { font-size: 1.8rem; }
+    .try-free-btn,
+    .download-btn,
+    .cta-btn { padding: 14px 30px; font-size: 1rem; }
+}
     </style>
 </head>
 <body>
@@ -1326,8 +1565,8 @@
     <section class="hero-section" id="home">
         <div class="hero-content">
             <a href="#" class="try-free-btn">Try for free</a>
-            <h1>Download <span class="highlight">learner's</span> space and secures your dream job</h1>
-            <p>Build a career thats piques the interest of recruiters and gets you hired. It's fast and easy to use.</p>
+            <h1>Download <span class="highlight">learner's</span> space and secure your dream job</h1>
+            <p>Build a career that piques the interest of recruiters and gets you hired. It's fast and easy to use.</p>
             <div class="download-buttons">
                 <a href="#" class="download-btn">
                     <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
@@ -1360,6 +1599,156 @@
         </div>
     </section>
 
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
+            <h2 class="section-title">The Challenge <span class="highlight">Learners Face</span></h2>
+            <p class="section-subtitle">Navigating today's crowded learning marketplace shouldn't be overwhelming. We understand your struggles.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;">
+                <div class="problem-card" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🔍</div>
+                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Discovery Chaos</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Finding the right course in a crowded market is like searching for a needle in a haystack.</p>
+                </div>
+                
+                <div class="problem-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">📢</div>
+                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Information Overload</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Too many options, too much noise—separating quality from quantity is exhausting.</p>
+                </div>
+                
+                <div class="problem-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🤔</div>
+                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Platform Dependency</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Relying on search engines and social media to find relevant programs limits your options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2 class="section-title">Your <span class="highlight">Smart Solution</span></h2>
+            <p class="section-subtitle">We've built the ultimate platform to cut through the noise and connect you with the perfect learning opportunities.</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">⭐</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Smart Discovery</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Find relevant programs instantly with our AI-powered recommendation engine. No more endless scrolling.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">💎</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Verified Reviews</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Make informed decisions with authentic reviews, ratings, and placement statistics from real learners.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">💰</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Price Comparison</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Compare prices, learning modes, and certification options across institutions in one place.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">📊</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Track Your Progress</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Keep a complete record of your learning journey and certifications in one organized dashboard.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">🤝</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Referral Network</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Get exclusive referrals and job opportunities after completing certifications with our partner institutions.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">👥</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Vibrant Community</h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Connect with fellow learners, share experiences, and grow together in our supportive community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Insights Section -->
+    <section class="insights-section">
+        <div class="insights-container">
+            <h2 class="section-title" style="color: white;">Real-time <span style="color: #ffd89b;">Market Insights</span></h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Stay ahead of the curve with live data and trends in your career domain.</p>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-number">📈</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Career Trends</h3>
+                    <p style="opacity: 0.9; line-height: 1.6;">Get real-time insights into emerging skills and career opportunities in your field.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-number">💼</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Salary Insights</h3>
+                    <p style="opacity: 0.9; line-height: 1.6;">Understand market compensation rates and growth potential for your chosen career path.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-number">🎯</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Demand Analysis</h3>
+                    <p style="opacity: 0.9; line-height: 1.6;">See which skills are most in-demand and align your learning accordingly.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-number">🌟</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Success Stories</h3>
+                    <p style="opacity: 0.9; line-height: 1.6;">Learn from professionals who've successfully transitioned into your target role.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Join Our <span class="highlight">Learning Community</span></h2>
+            <p class="section-subtitle">Be part of a thriving ecosystem where learners support each other and celebrate success together.</p>
+            
+            <div class="community-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎓</div>
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Exclusive Referrals</h3>
+                        <p style="color: var(--text-light); line-height: 1.6;">Get referred to top companies after completing certifications with our partner institutions.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Peer Support</h3>
+                        <p style="color: var(--text-light); line-height: 1.6;">Connect with fellow learners, share experiences, and get help when you need it.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏆</div>
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Achievement Tracking</h3>
+                        <p style="color: var(--text-light); line-height: 1.6;">Showcase your certifications and milestones to potential employers.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌐</div>
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Networking Events</h3>
+                        <p style="color: var(--text-light); line-height: 1.6;">Attend exclusive webinars, workshops, and networking sessions with industry experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="how-works-section" id="courses">
         <h2 class="section-title">How <span class="highlight">Learner's</span> Space Works</h2>
         <p class="section-subtitle">Embrace the vastness of the intellectual universe. Venture forth into the limitless realms of knowledge, and discover the wonders waiting within every concept and skill.</p>
@@ -1369,7 +1758,7 @@
                 <div class="feature-item">
                     <div class="feature-number light">1</div>
                     <h3>Real-time Tracking</h3>
-                    <p>Track your ride's progress in real-time..</p>
+                    <p>Track your ride's progress in real-time.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-number dark">3</div>
@@ -1386,7 +1775,7 @@
             <div class="features-right">
                 <div class="feature-item">
                     <div class="feature-number light">2</div>
-                    <h3>Ai Guide</h3>
+                    <h3>AI Guide</h3>
                     <p>Safe and seamless Assistance option.</p>
                 </div>
                 <div class="feature-item">
@@ -1491,25 +1880,25 @@
         </div>
 
         <section class="cta-section" id="contact">
-  <div class="cta-content">
-    <div class="cta-text">
-      <h2>Start your <span class="highlight">learning journey</span> today!</h2>
-      <p>Don't wait to level up your skills. Download the Learner's Space app and take your career to the next level.</p>
-      <button class="cta-btn">Get Started</button>
-    </div>
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Start your <span class="highlight">learning journey</span> today!</h2>
+                    <p>Don't wait to level up your skills. Download the Learner's Space app and take your career to the next level.</p>
+                    <button class="cta-btn">Get Started</button>
+                </div>
 
-    <div class="cta-phones">
-      <div class="cta-phone">
-        <div class="notch"></div>
-        <div class="phone-screen"></div>
-      </div>
-      <div class="cta-phone">
-        <div class="notch"></div>
-        <div class="phone-screen"></div>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="cta-phones">
+                    <div class="cta-phone">
+                        <div class="notch"></div>
+                        <div class="phone-screen"></div>
+                    </div>
+                    <div class="cta-phone">
+                        <div class="notch"></div>
+                        <div class="phone-screen"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <footer>
@@ -1574,12 +1963,44 @@
                             }, index * 150);
                         });
                     }
+                    if (entry.target.classList.contains('problem-card')) {
+                        const cards = entry.target.parentElement.children;
+                        Array.from(cards).forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 200);
+                        });
+                    }
+                    if (entry.target.classList.contains('solution-card')) {
+                        const cards = entry.target.parentElement.children;
+                        Array.from(cards).forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 150);
+                        });
+                    }
+                    if (entry.target.classList.contains('insight-card')) {
+                        const cards = entry.target.parentElement.children;
+                        Array.from(cards).forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 150);
+                        });
+                    }
+                    if (entry.target.classList.contains('benefit-item')) {
+                        const items = entry.target.parentElement.children;
+                        Array.from(items).forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, index * 150);
+                        });
+                    }
                 }
             });
         }, observerOptions);
 
         // Observe elements
-        document.querySelectorAll('.feature-item, .feature-box, .testimonial-card')
+        document.querySelectorAll('.feature-item, .feature-box, .testimonial-card, .problem-card, .solution-card, .insight-card, .benefit-item')
             .forEach(el => observer.observe(el));
 
         // Enhanced navbar scroll effect
