@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,99 @@
             scroll-behavior: smooth;
         }
 
+        /* ---------------------------------------------------- */
+        /* FAQ (ACROSS ALL SCREENS) STYLES - MOVED OUT OF MEDIA QUERY */
+        /* ---------------------------------------------------- */
+        .faq-section {
+            background-color: #f3f4f6;
+            padding: 5rem 1rem;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-family: "Inter", sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 2.5rem;
+        }
+
+        /* 🪄 Accordion Styles */
+        .faq-accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            font-family: "Inter", sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .faq-accordion-header:hover {
+            background-color: #f9fafb;
+        }
+
+        .faq-accordion-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-accordion-content {
+            display: none;
+            padding: 0 1.25rem 1.25rem;
+            font-family: "Inter", sans-serif;
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .faq-accordion-item.active .faq-accordion-content {
+            display: block;
+        }
+
+        .faq-accordion-item.active .faq-accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 640px) {
+            .faq-title {
+                font-size: 1.75rem;
+            }
+
+            .faq-accordion-header {
+                font-size: 1rem;
+            }
+        }
+
+        /* ---------------------------------------------------- */
+
         /* Enhanced Navigation */
         nav {
             position: fixed;
@@ -40,7 +134,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
         }
@@ -48,7 +142,7 @@
         nav.scrolled {
             padding: 15px 50px;
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
         }
 
         .logo {
@@ -67,8 +161,15 @@
         }
 
         @keyframes colorPulse {
-            0%, 100% { color: var(--primary-color); }
-            50% { color: #ff8c5a; }
+
+            0%,
+            100% {
+                color: var(--primary-color);
+            }
+
+            50% {
+                color: #ff8c5a;
+            }
         }
 
         .nav-links {
@@ -111,7 +212,8 @@
             gap: 15px;
         }
 
-        .btn-outline, .btn-filled {
+        .btn-outline,
+        .btn-filled {
             padding: 12px 30px;
             border: 2px solid var(--primary-color);
             background: white;
@@ -149,7 +251,8 @@
             height: 300px;
         }
 
-        .btn-filled:hover, .btn-outline:hover {
+        .btn-filled:hover,
+        .btn-outline:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
         }
@@ -178,8 +281,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-30px, -30px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-30px, -30px) rotate(180deg);
+            }
         }
 
         .hero-content {
@@ -205,9 +315,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .try-free-btn:hover {
@@ -243,8 +361,13 @@
         }
 
         @keyframes highlightGrow {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
 
         .hero-content p {
@@ -308,7 +431,7 @@
             height: 700px;
             background: white;
             border-radius: 50px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             padding: 15px;
             position: relative;
             border: 12px solid #1a1a1a;
@@ -323,10 +446,18 @@
         }
 
         @keyframes phoneFloat {
-            0%, 100% { transform: rotateY(-15deg) rotateX(5deg) translateY(0); }
-            50% { transform: rotateY(-15deg) rotateX(5deg) translateY(-20px); }
+
+            0%,
+            100% {
+                transform: rotateY(-15deg) rotateX(5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(-15deg) rotateX(5deg) translateY(-20px);
+            }
         }
 
+        /* Base phone screen style (override with image or color classes as needed) */
         .phone-screen {
             width: 100%;
             height: 100%;
@@ -334,6 +465,16 @@
             border-radius: 40px;
             overflow: hidden;
             position: relative;
+            /* Added styles for image containment */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .notch {
@@ -371,8 +512,15 @@
         }
 
         @keyframes triangleFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
         }
 
         .floating-square {
@@ -389,8 +537,13 @@
         }
 
         @keyframes squareRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .dots-pattern {
@@ -421,8 +574,17 @@
         }
 
         @keyframes dotPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
         }
 
         /* Problem Section */
@@ -447,7 +609,7 @@
 
         .problem-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
         }
 
         /* Solution Section */
@@ -471,7 +633,7 @@
             background: white;
             padding: 45px;
             border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -660,8 +822,13 @@
         }
 
         @keyframes backgroundFloat {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100px, -100px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100px, -100px);
+            }
         }
 
         .section-title {
@@ -699,7 +866,8 @@
             z-index: 2;
         }
 
-        .features-left, .features-right {
+        .features-left,
+        .features-right {
             display: flex;
             flex-direction: column;
             gap: 100px;
@@ -746,8 +914,15 @@
         }
 
         @keyframes ripple {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(1.5); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
 
         .feature-number.light {
@@ -787,7 +962,7 @@
             height: 700px;
             background: white;
             border-radius: 50px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             padding: 15px;
             border: 12px solid #1a1a1a;
             transform: scale(1);
@@ -829,8 +1004,7 @@
             height: 600px;
             background: white;
             border-radius: 45px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            padding: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             border: 10px solid #1a1a1a;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -850,13 +1024,27 @@
         }
 
         @keyframes phoneStackFloat1 {
-            0%, 100% { transform: rotate(-15deg) translateY(0); }
-            50% { transform: rotate(-15deg) translateY(-15px); }
+
+            0%,
+            100% {
+                transform: rotate(-15deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-15deg) translateY(-15px);
+            }
         }
 
         @keyframes phoneStackFloat2 {
-            0%, 100% { transform: rotate(5deg) translateY(0); }
-            50% { transform: rotate(5deg) translateY(-15px); }
+
+            0%,
+            100% {
+                transform: rotate(5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(5deg) translateY(-15px);
+            }
         }
 
         .orange-circle {
@@ -873,8 +1061,15 @@
         }
 
         @keyframes circlePulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
         }
 
         .ready-features {
@@ -927,7 +1122,7 @@
             font-size: 2rem;
             flex-shrink: 0;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .feature-box:hover .feature-icon {
@@ -1019,7 +1214,7 @@
             background: white;
             padding: 35px;
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1050,7 +1245,7 @@
 
         .testimonial-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .quote-icon {
@@ -1130,13 +1325,20 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             animation: ctaGlow 8s ease-in-out infinite;
         }
 
         @keyframes ctaGlow {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
         }
 
         .cta-content {
@@ -1190,7 +1392,7 @@
 
         .cta-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .cta-btn:active {
@@ -1210,8 +1412,7 @@
             height: 560px;
             background: white;
             border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
             border: 10px solid #1a1a1a;
             overflow: hidden;
         }
@@ -1228,9 +1429,8 @@
         }
 
         .cta-phone .phone-screen {
-            margin: 40px 0 0 0;
             width: 100%;
-            height: calc(100% - 50px);
+            height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 25px;
         }
@@ -1251,13 +1451,27 @@
         }
 
         @keyframes ctaFloat1 {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
         }
 
         @keyframes ctaFloat2 {
-            0%, 100% { transform: scale(0.9) translateY(0) rotate(0deg); }
-            50% { transform: scale(0.9) translateY(-15px) rotate(-2deg); }
+
+            0%,
+            100% {
+                transform: scale(0.9) translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(0.9) translateY(-15px) rotate(-2deg);
+            }
         }
 
         /* Enhanced Footer */
@@ -1281,8 +1495,13 @@
         }
 
         @keyframes footerFloat {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-150px, -150px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-150px, -150px);
+            }
         }
 
         .footer-content {
@@ -1335,7 +1554,7 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: all 0.3s ease;
@@ -1421,6 +1640,7 @@
                 opacity: 0;
                 transform: translateX(-100px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1432,6 +1652,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1439,111 +1660,201 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* ---------------------------------------------------- */
-/*  MOBILE / SMALL-TABLET  RESPONSIVE  OVERRIDES        */
-/* ---------------------------------------------------- */
+        /* MOBILE / SMALL-TABLET  RESPONSIVE  OVERRIDES        */
+        /* ---------------------------------------------------- */
 
-/* 0. Reset base font-size for easier rem maths */
-html { font-size: 16px; }
-body { -webkit-font-smoothing: antialiased; }
+        /* 0. Reset base font-size for easier rem maths */
+        html {
+            font-size: 16px;
+        }
 
-/* 1. ≤ 768 px (phones in portrait + small tablets) */
-@media (max-width: 768px) {
-    /* --- NAV --- */
-    nav {
-        padding: 12px 20px;
-    }
-    .nav-links,
-    .nav-buttons { display: none; }          /* classic “hamburger later” */
-    .logo { font-size: 1.4rem; }
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* --- HERO --- */
-    .hero-section {
-        flex-direction: column;
-        padding: 100px 20px 60px;
-        text-align: center;
-        min-height: auto;
-    }
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-content p { font-size: 1rem; }
-    .download-buttons { flex-direction: column; align-items: center; gap: 15px; }
-    .phone-mockup {
-        width: 200px;
-        height: 400px;
-        margin-top: 40px;
-    }
+        /* 1. ≤ 768 px (phones in portrait + small tablets) */
+        @media (max-width: 768px) {
 
-    /* --- GLOBAL SECTIONS --- */
-    .section-title { font-size: 1.8rem; }
-    .section-subtitle { font-size: 0.95rem; padding: 0 10px; }
+            /* --- NAV --- */
+            nav {
+                padding: 12px 20px;
+            }
 
-    /* --- PROBLEM / SOLUTION / COMMUNITY --- */
-    .problem-section,
-    .solution-section,
-    .community-section,
-    .insights-section { padding: 60px 20px; }
+            .nav-links,
+            .nav-buttons {
+                display: none;
+            }
 
-    .solution-grid,
-    .community-benefits,
-    .insights-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
+            /* classic “hamburger later” */
+            .logo {
+                font-size: 1.4rem;
+            }
 
-    /* --- HOW-IT-WORKS --- */
-    .how-works-section { padding: 60px 20px; }
-    .features-container { flex-direction: column; gap: 40px; }
-    .center-phone { width: 200px; height: 400px; }
+            /* --- HERO --- */
+            .hero-section {
+                flex-direction: column;
+                padding: 100px 20px 60px;
+                text-align: center;
+                min-height: auto;
+            }
 
-    /* --- READY SECTION --- */
-    .ready-section { padding: 60px 20px; }
-    .ready-container { flex-direction: column; gap: 40px; }
-    .phones-stack { width: 100%; height: 320px; }
-    .stacked-phone {
-        width: 180px;
-        height: 360px;
-    }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
 
-    /* --- TESTIMONIALS --- */
-    .testimonials-section { padding: 60px 20px; }
-    .testimonials-header { text-align: center; }
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
+            .hero-content p {
+                font-size: 1rem;
+            }
 
-    /* --- CTA --- */
-    .cta-section { padding: 60px 20px; border-radius: 30px 30px 0 0; }
-    .cta-content { flex-direction: column; text-align: center; }
-    .cta-phone {
-        width: 160px;
-        height: 320px;
-    }
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
 
-    /* --- FOOTER --- */
-    footer { padding: 50px 20px 20px; }
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-    .social-links { justify-content: center; }
-}
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+                margin-top: 40px;
+            }
 
-/* 2. very small phones ≤ 480 px */
-@media (max-width: 480px) {
-    html { font-size: 14px; }           /* slightly smaller type */
-    .hero-content h1 { font-size: 1.8rem; }
-    .try-free-btn,
-    .download-btn,
-    .cta-btn { padding: 14px 30px; font-size: 1rem; }
-}
+            /* --- GLOBAL SECTIONS --- */
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+
+            /* --- PROBLEM / SOLUTION / COMMUNITY --- */
+            .problem-section,
+            .solution-section,
+            .community-section,
+            .insights-section {
+                padding: 60px 20px;
+            }
+
+            .solution-grid,
+            .community-benefits,
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            /* --- HOW-IT-WORKS --- */
+            .how-works-section {
+                padding: 60px 20px;
+            }
+
+            .features-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .center-phone {
+                width: 200px;
+                height: 400px;
+            }
+
+            /* --- READY SECTION --- */
+            .ready-section {
+                padding: 60px 20px;
+            }
+
+            .ready-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .phones-stack {
+                width: 100%;
+                height: 320px;
+            }
+
+            .stacked-phone {
+                width: 180px;
+                height: 360px;
+            }
+
+            /* --- TESTIMONIALS --- */
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+
+            .testimonials-header {
+                text-align: center;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            /* --- CTA --- */
+            .cta-section {
+                padding: 60px 20px;
+                border-radius: 30px 30px 0 0;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-phone {
+                width: 160px;
+                height: 320px;
+            }
+
+            /* --- FOOTER --- */
+            footer {
+                padding: 50px 20px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* 2. very small phones ≤ 480 px */
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            /* slightly smaller type */
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .try-free-btn,
+            .download-btn,
+            .cta-btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav id="navbar">
         <div class="logo">
@@ -1564,19 +1875,31 @@ body { -webkit-font-smoothing: antialiased; }
 
     <section class="hero-section" id="home">
         <div class="hero-content">
-            <a href="#" class="try-free-btn">Try for free</a>
-            <h1>Download <span class="highlight">learner's</span> space and secure your dream job</h1>
-            <p>Build a career that piques the interest of recruiters and gets you hired. It's fast and easy to use.</p>
+            <a href="#" class="try-free-btn">🚀 Try for free</a>
+            <h1>
+                Your Learning Journey Deserves Clarity
+                <span>Not Guesswork.</span>
+            </h1>
+            <p>
+                Discover your perfect learning platform personalized, unbiased, and ready in under 60 seconds.
+                Learn smarter, not harder.
+            </p>
             <div class="download-buttons">
                 <a href="#" class="download-btn">
-                    <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                    </svg>
                     <div>
-                        <div style="font-size: 0.85rem;">Download on the</div>
+                        <div style="font-size: 0.85rem;">Get it on</div>
                         <div>Google Play</div>
                     </div>
                 </a>
                 <a href="#" class="download-btn">
-                    <svg viewBox="0 0 24 24"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
+                    </svg>
                     <div>
                         <div style="font-size: 0.85rem;">Download on the</div>
                         <div>App Store</div>
@@ -1584,6 +1907,7 @@ body { -webkit-font-smoothing: antialiased; }
                 </a>
             </div>
         </div>
+
         <div class="hero-image">
             <div class="triangle-decoration triangle-1"></div>
             <div class="floating-square"></div>
@@ -1593,157 +1917,78 @@ body { -webkit-font-smoothing: antialiased; }
             </div>
             <div class="phone-mockup">
                 <div class="notch"></div>
-                <div class="phone-screen"></div>
+                <div class="phone-screen">
+                    <img src="Home.png" alt="Learner's Space App Home Screen">
+                </div>
             </div>
             <div class="triangle-decoration triangle-2"></div>
         </div>
     </section>
 
-    <!-- Problem Section -->
+
     <section class="problem-section">
         <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
             <h2 class="section-title">The Challenge <span class="highlight">Learners Face</span></h2>
-            <p class="section-subtitle">Navigating today's crowded learning marketplace shouldn't be overwhelming. We understand your struggles.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;">
-                <div class="problem-card" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <p class="section-subtitle">Navigating today's crowded learning marketplace shouldn't be overwhelming. We
+                understand your struggles.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;">
+                <div class="problem-card"
+                    style="background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <div style="font-size: 3rem; margin-bottom: 20px;">🔍</div>
                     <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Discovery Chaos</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Finding the right course in a crowded market is like searching for a needle in a haystack.</p>
+                    <p style="color: var(--text-light); line-height: 1.7;">Finding the right course in a crowded market
+                        is like searching for a needle in a haystack.</p>
                 </div>
-                
-                <div class="problem-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+
+                <div class="problem-card"
+                    style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <div style="font-size: 3rem; margin-bottom: 20px;">📢</div>
-                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Information Overload</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Too many options, too much noise—separating quality from quantity is exhausting.</p>
+                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Information Overload
+                    </h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Too many options, too much noise—separating
+                        quality from quantity is exhausting.</p>
                 </div>
-                
-                <div class="problem-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+
+                <div class="problem-card"
+                    style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <div style="font-size: 3rem; margin-bottom: 20px;">🤔</div>
-                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Platform Dependency</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Relying on search engines and social media to find relevant programs limits your options.</p>
+                    <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px;">Platform Dependency
+                    </h3>
+                    <p style="color: var(--text-light); line-height: 1.7;">Relying on search engines and social media to
+                        find relevant programs limits your options.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
     <section class="solution-section">
         <div style="max-width: 1400px; margin: 0 auto;">
             <h2 class="section-title">Your <span class="highlight">Smart Solution</span></h2>
-            <p class="section-subtitle">We've built the ultimate platform to cut through the noise and connect you with the perfect learning opportunities.</p>
-            
+            <p class="section-subtitle">We've built the ultimate platform to cut through the noise and connect you with
+                the perfect learning opportunities.</p>
+
             <div class="solution-grid">
                 <div class="solution-card">
                     <div class="solution-icon">⭐</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Smart Discovery</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Find relevant programs instantly with our AI-powered recommendation engine. No more endless scrolling.</p>
+                    <p style="color: var(--text-light); line-height: 1.7;">Find relevant programs instantly with our
+                        AI-powered recommendation engine. No more endless scrolling.</p>
                 </div>
-                
+
                 <div class="solution-card">
                     <div class="solution-icon">💎</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Verified Reviews</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Make informed decisions with authentic reviews, ratings, and placement statistics from real learners.</p>
+                    <p style="color: var(--text-light); line-height: 1.7;">Make informed decisions with authentic
+                        reviews, ratings, and placement statistics from real learners.</p>
                 </div>
-                
+
                 <div class="solution-card">
                     <div class="solution-icon">💰</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Price Comparison</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Compare prices, learning modes, and certification options across institutions in one place.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">📊</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Track Your Progress</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Keep a complete record of your learning journey and certifications in one organized dashboard.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">🤝</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Referral Network</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Get exclusive referrals and job opportunities after completing certifications with our partner institutions.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">👥</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark);">Vibrant Community</h3>
-                    <p style="color: var(--text-light); line-height: 1.7;">Connect with fellow learners, share experiences, and grow together in our supportive community.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Insights Section -->
-    <section class="insights-section">
-        <div class="insights-container">
-            <h2 class="section-title" style="color: white;">Real-time <span style="color: #ffd89b;">Market Insights</span></h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Stay ahead of the curve with live data and trends in your career domain.</p>
-            
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <div class="insight-number">📈</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Career Trends</h3>
-                    <p style="opacity: 0.9; line-height: 1.6;">Get real-time insights into emerging skills and career opportunities in your field.</p>
-                </div>
-                
-                <div class="insight-card">
-                    <div class="insight-number">💼</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Salary Insights</h3>
-                    <p style="opacity: 0.9; line-height: 1.6;">Understand market compensation rates and growth potential for your chosen career path.</p>
-                </div>
-                
-                <div class="insight-card">
-                    <div class="insight-number">🎯</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Demand Analysis</h3>
-                    <p style="opacity: 0.9; line-height: 1.6;">See which skills are most in-demand and align your learning accordingly.</p>
-                </div>
-                
-                <div class="insight-card">
-                    <div class="insight-number">🌟</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Success Stories</h3>
-                    <p style="opacity: 0.9; line-height: 1.6;">Learn from professionals who've successfully transitioned into your target role.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section class="community-section">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title">Join Our <span class="highlight">Learning Community</span></h2>
-            <p class="section-subtitle">Be part of a thriving ecosystem where learners support each other and celebrate success together.</p>
-            
-            <div class="community-benefits">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🎓</div>
-                    <div>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Exclusive Referrals</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Get referred to top companies after completing certifications with our partner institutions.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">💬</div>
-                    <div>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Peer Support</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Connect with fellow learners, share experiences, and get help when you need it.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">🏆</div>
-                    <div>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Achievement Tracking</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Showcase your certifications and milestones to potential employers.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">🌐</div>
-                    <div>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark);">Networking Events</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Attend exclusive webinars, workshops, and networking sessions with industry experts.</p>
-                    </div>
+                    <p style="color: var(--text-light); line-height: 1.7;">Compare prices, learning modes, and
+                        certification options across institutions in one place.</p>
                 </div>
             </div>
         </div>
@@ -1751,14 +1996,15 @@ body { -webkit-font-smoothing: antialiased; }
 
     <section class="how-works-section" id="courses">
         <h2 class="section-title">How <span class="highlight">Learner's</span> Space Works</h2>
-        <p class="section-subtitle">Embrace the vastness of the intellectual universe. Venture forth into the limitless realms of knowledge, and discover the wonders waiting within every concept and skill.</p>
-        
+        <p class="section-subtitle">Embrace the vastness of the intellectual universe. Venture forth into the limitless
+            realms of knowledge, and discover the wonders waiting within every concept and skill.</p>
+
         <div class="features-container">
             <div class="features-left">
                 <div class="feature-item">
                     <div class="feature-number light">1</div>
-                    <h3>Real-time Tracking</h3>
-                    <p>Track your ride's progress in real-time.</p>
+                    <h3>Smart Filtering</h3>
+                    <p>Filter And Find Perfect Courses Without The Noise</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-number dark">3</div>
@@ -1766,12 +2012,14 @@ body { -webkit-font-smoothing: antialiased; }
                     <p>Choose from various Course types for your convenience.</p>
                 </div>
             </div>
-            
+
             <div class="center-phone">
                 <div class="notch"></div>
-                <div class="phone-screen"></div>
+                <div class="phone-screen">
+                    <img src="Home.png" alt="Learner's Space App Feature Screen">
+                </div>
             </div>
-            
+
             <div class="features-right">
                 <div class="feature-item">
                     <div class="feature-number light">2</div>
@@ -1789,28 +2037,34 @@ body { -webkit-font-smoothing: antialiased; }
 
     <section class="ready-section" id="explore">
         <h2 class="section-title">Ready to <span class="highlight">Learn?</span></h2>
-        <p class="section-subtitle">Embrace the vastness of the intellectual universe. Venture forth into the limitless realms of knowledge, and discover the wonders waiting within every concept and skill.</p>
-        
+        <p class="section-subtitle">Embrace the vastness of the intellectual universe. Venture forth into the limitless
+            realms of knowledge, and discover the wonders waiting within every concept and skill.</p>
+
         <div class="ready-container">
             <div class="phones-stack">
                 <div class="orange-circle"></div>
                 <div class="stacked-phone">
                     <div class="notch"></div>
-                    <div class="phone-screen"></div>
+                    <div class="phone-screen">
+                        <img src="App1.png" alt="App Screen 1">
+                    </div>
                 </div>
                 <div class="stacked-phone">
                     <div class="notch"></div>
-                    <div class="phone-screen"></div>
+                    <div class="phone-screen">
+                        <img src="App2.png" alt="App Screen 2">
+                    </div>
                 </div>
             </div>
-            
+
             <div class="ready-features">
                 <div class="feature-box">
                     <div class="feature-icon">✉️</div>
                     <div>
-                        <h3>Real-time Tracking</h3>
-                        <p>Track your progress in real-time.</p>
+                        <h3>Find Your Perfect Course</h3>
+                        <p>Discover personalized courses that match your skills and career goals.</p>
                     </div>
+
                 </div>
                 <div class="feature-box">
                     <div class="feature-icon">🏢</div>
@@ -1833,13 +2087,14 @@ body { -webkit-font-smoothing: antialiased; }
     <section class="testimonials-section" id="blog">
         <div class="testimonials-header">
             <h2>Testimonials from our members</h2>
-            <p>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize its grand offerings now!</p>
+            <p>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize
+                its grand offerings now!</p>
             <div class="nav-arrows">
                 <button class="arrow-btn">❮</button>
                 <button class="arrow-btn">❯</button>
             </div>
         </div>
-        
+
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="quote-icon">"</div>
@@ -1883,31 +2138,120 @@ body { -webkit-font-smoothing: antialiased; }
             <div class="cta-content">
                 <div class="cta-text">
                     <h2>Start your <span class="highlight">learning journey</span> today!</h2>
-                    <p>Don't wait to level up your skills. Download the Learner's Space app and take your career to the next level.</p>
+                    <p>Don't wait to level up your skills. Download the Learner's Space app and take your career to the
+                        next level.</p>
                     <button class="cta-btn">Get Started</button>
                 </div>
 
                 <div class="cta-phones">
                     <div class="cta-phone">
-                        <div class="notch"></div>
-                        <div class="phone-screen"></div>
+
+                        <div class="phone-screen">
+                            <img src="Login.png" alt="App Download Screen 1">
+                        </div>
                     </div>
                     <div class="cta-phone">
                         <div class="notch"></div>
-                        <div class="phone-screen"></div>
+                        <div class="phone-screen">
+                            <img src="SignUp.png" alt="App Download Screen 2">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </section>
 
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-accordion">
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span>Is Learner Space free?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="faq-accordion-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-accordion-content">
+                        Yes! Learner Space is completely free to use. We believe everyone
+                        deserves access to clarity when choosing their learning path.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span>How are recommendations made?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="faq-accordion-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-accordion-content">
+                        Our algorithm analyzes your goals, learning style, budget, and
+                        preferences to match you with platforms that best fit your needs —
+                        all without bias or sponsorship.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span>Are results unbiased?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="faq-accordion-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-accordion-content">
+                        Absolutely. We never accept paid placements or sponsored listings.
+                        Our recommendations are based purely on what's best for you.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <button class="faq-accordion-header">
+                        <span>Will it work for my goals?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="faq-accordion-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-accordion-content">
+                        Whether you're learning a new skill, advancing your career, or
+                        exploring a new field, Learner Space helps you find the right
+                        platform for your unique journey.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const accordionItems = document.querySelectorAll(".faq-accordion-item");
+
+        accordionItems.forEach((item) => {
+            const header = item.querySelector(".faq-accordion-header");
+
+            header.addEventListener("click", () => {
+                const openItem = document.querySelector(
+                    ".faq-accordion-item.active"
+                );
+                if (openItem && openItem !== item) {
+                    openItem.classList.remove("active");
+                }
+                item.classList.toggle("active");
+            });
+        });
+    </script>
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo">
                     <span>Learner's</span> <span>Space</span>
                 </div>
-                <p>Your personal guide to success. Join the growing community of learners shaping their future one skill at a time.</p>
+                <p>Your personal guide to success. Join the growing community of learners shaping their future one skill
+                    at a time.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f">f</i></a>
                     <a href="#"><i class="fab fa-twitter">t</i></a>
@@ -1915,7 +2259,7 @@ body { -webkit-font-smoothing: antialiased; }
                     <a href="#"><i class="fab fa-instagram">ig</i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -2017,7 +2361,7 @@ body { -webkit-font-smoothing: antialiased; }
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.triangle-decoration, .floating-square, .dots-pattern');
-            
+
             parallaxElements.forEach((element, index) => {
                 const speed = 0.5 + (index * 0.1);
                 const yPos = -(scrolled * speed);
@@ -2027,7 +2371,7 @@ body { -webkit-font-smoothing: antialiased; }
             // Parallax for hero content
             const heroContent = document.querySelector('.hero-content');
             const heroImage = document.querySelector('.hero-image');
-            
+
             if (heroContent && heroImage) {
                 heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
                 heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
@@ -2050,11 +2394,11 @@ body { -webkit-font-smoothing: antialiased; }
 
         // Enhanced button interactions
         document.querySelectorAll('.btn-outline, .btn-filled, .cta-btn, .arrow-btn').forEach(button => {
-            button.addEventListener('mouseenter', function() {
+            button.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-3px) scale(1.05)';
             });
-            
-            button.addEventListener('mouseleave', function() {
+
+            button.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
@@ -2073,13 +2417,13 @@ body { -webkit-font-smoothing: antialiased; }
                     // Next button
                     currentIndex = (currentIndex + 1) % testimonialCards.length;
                 }
-                
+
                 // Add swipe animation
                 testimonialCards.forEach(card => {
                     card.style.transform = 'translateX(-20px)';
                     card.style.opacity = '0.5';
                 });
-                
+
                 setTimeout(() => {
                     testimonialCards.forEach(card => {
                         card.style.transform = 'translateX(0)';
@@ -2093,7 +2437,7 @@ body { -webkit-font-smoothing: antialiased; }
         window.addEventListener('load', () => {
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease';
-            
+
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
@@ -2120,4 +2464,5 @@ body { -webkit-font-smoothing: antialiased; }
         sections.forEach(section => sectionObserver.observe(section));
     </script>
 </body>
+
 </html>
