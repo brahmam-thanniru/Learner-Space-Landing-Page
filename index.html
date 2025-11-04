@@ -477,16 +477,6 @@
             object-fit: cover;
         }
 
-        .notch {
-            width: 150px;
-            height: 30px;
-            background: #1a1a1a;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 0 0 20px 20px;
-        }
 
         /* Enhanced Decorative Elements with Parallax */
         .triangle-decoration {
@@ -1417,16 +1407,7 @@
             overflow: hidden;
         }
 
-        .cta-phone .notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 12px;
-            background: #1a1a1a;
-            border-radius: 0 0 10px 10px;
-        }
+
 
         .cta-phone .phone-screen {
             width: 100%;
@@ -1834,7 +1815,21 @@
             }
         }
 
-        /* 2. very small phones ≤ 480 px */
+        @media (max-width: 768px) {
+
+            .phone-mockup,
+            .center-phone,
+            .stacked-phone,
+            .cta-phone {
+                border-radius: 25px !important;
+                border-width: 8px;
+            }
+
+            .phone-screen {
+                border-radius: 15px !important;
+            }
+        }
+
         @media (max-width: 480px) {
             html {
                 font-size: 14px;
@@ -1916,7 +1911,7 @@
                 <span></span><span></span><span></span><span></span>
             </div>
             <div class="phone-mockup">
-                <div class="notch"></div>
+
                 <div class="phone-screen">
                     <img src="Home.png" alt="Learner's Space App Home Screen">
                 </div>
@@ -2014,7 +2009,7 @@
             </div>
 
             <div class="center-phone">
-                <div class="notch"></div>
+
                 <div class="phone-screen">
                     <img src="Home.png" alt="Learner's Space App Feature Screen">
                 </div>
@@ -2044,13 +2039,13 @@
             <div class="phones-stack">
                 <div class="orange-circle"></div>
                 <div class="stacked-phone">
-                    <div class="notch"></div>
+
                     <div class="phone-screen">
                         <img src="App1.png" alt="App Screen 1">
                     </div>
                 </div>
                 <div class="stacked-phone">
-                    <div class="notch"></div>
+
                     <div class="phone-screen">
                         <img src="App2.png" alt="App Screen 2">
                     </div>
@@ -2151,7 +2146,7 @@
                         </div>
                     </div>
                     <div class="cta-phone">
-                        <div class="notch"></div>
+
                         <div class="phone-screen">
                             <img src="SignUp.png" alt="App Download Screen 2">
                         </div>
