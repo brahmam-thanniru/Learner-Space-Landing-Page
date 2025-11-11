@@ -1,2361 +1,2413 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="./images/icon.jpg" />
-  <title>Learner Space</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/icon.jpg" />
+    <title>Learner Space</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    :root {
-      --primary-color: #ff6b35;
-      --secondary-color: #ffd4c4;
-      --accent-color: #ffb399;
-      --text-dark: #1a1a1a;
-      --text-light: #666;
-      --bg-light: #f5f5f5;
-      --bg-white: #ffffff;
-    }
+      :root {
+        --primary-color: #ff6b35;
+        --secondary-color: #ffd4c4;
+        --accent-color: #ffb399;
+        --text-dark: #1a1a1a;
+        --text-light: #666;
+        --bg-light: #f5f5f5;
+        --bg-white: #ffffff;
+      }
 
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      scroll-behavior: smooth;
-    }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+        background: var(--bg-light);
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+      }
 
-    /* ---------------------------------------------------- */
-    /* FAQ (ACROSS ALL SCREENS) STYLES - MOVED OUT OF MEDIA QUERY */
-    /* ---------------------------------------------------- */
-    .faq-section {
-      background-color: #f3f4f6;
-      padding: 5rem 1rem;
-    }
+      /* ---------------------------------------------------- */
+      /* FAQ (ACROSS ALL SCREENS) STYLES - MOVED OUT OF MEDIA QUERY */
+      /* ---------------------------------------------------- */
+      .faq-section {
+        background-color: #f3f4f6;
+        padding: 5rem 1rem;
+      }
 
-    .faq-container {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+      .faq-container {
+        max-width: 700px;
+        margin: 0 auto;
+      }
 
-    .faq-title {
-      text-align: center;
-      font-family: "Inter", sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 2.5rem;
-    }
-
-    /* 🪄 Accordion Styles */
-    .faq-accordion-item {
-      border: 1px solid #e5e7eb;
-      border-radius: 0.75rem;
-      margin-bottom: 1rem;
-      background-color: white;
-      overflow: hidden;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .faq-accordion-item:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .faq-accordion-header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: none;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 1rem 1.25rem;
-      font-family: "Inter", sans-serif;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: #111827;
-      text-align: left;
-      transition: background-color 0.2s ease;
-    }
-
-    .faq-accordion-header:hover {
-      background-color: #f9fafb;
-    }
-
-    .faq-accordion-icon {
-      width: 1.25rem;
-      height: 1.25rem;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-accordion-content {
-      display: none;
-      padding: 0 1.25rem 1.25rem;
-      font-family: "Inter", sans-serif;
-      color: #4b5563;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .faq-accordion-item.active .faq-accordion-content {
-      display: block;
-    }
-
-    .faq-accordion-item.active .faq-accordion-icon {
-      transform: rotate(180deg);
-    }
-
-    @media (max-width: 640px) {
       .faq-title {
-        font-size: 1.75rem;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 2.5rem;
+      }
+
+      /* 🪄 Accordion Styles */
+      .faq-accordion-item {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        margin-bottom: 1rem;
+        background-color: white;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .faq-accordion-item:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       }
 
       .faq-accordion-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 1rem 1.25rem;
+        font-family: "Inter", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+        text-align: left;
+        transition: background-color 0.2s ease;
+      }
+
+      .faq-accordion-header:hover {
+        background-color: #f9fafb;
+      }
+
+      .faq-accordion-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-accordion-content {
+        display: none;
+        padding: 0 1.25rem 1.25rem;
+        font-family: "Inter", sans-serif;
+        color: #4b5563;
         font-size: 1rem;
-      }
-    }
-
-    /* ---------------------------------------------------- */
-
-    /* Enhanced Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.98);
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(10px);
-    }
-
-    nav.scrolled {
-      padding: 15px 50px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .logo span:first-child {
-      color: var(--primary-color);
-      animation: colorPulse 3s ease-in-out infinite;
-    }
-
-    @keyframes colorPulse {
-
-      0%,
-      100% {
-        color: var(--primary-color);
+        line-height: 1.6;
       }
 
-      50% {
-        color: #ff8c5a;
-      }
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      padding: 5px 0;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary-color);
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a.active {
-      color: var(--primary-color);
-    }
-
-    .nav-buttons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .btn-outline,
-    .btn-filled {
-      padding: 12px 30px;
-      border: 2px solid var(--primary-color);
-      background: white;
-      color: var(--primary-color);
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-filled {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .btn-outline::before,
-    .btn-filled::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 107, 53, 0.2);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.5s ease;
-    }
-
-    .btn-outline:hover::before,
-    .btn-filled:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .btn-filled:hover,
-    .btn-outline:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-    }
-
-    /* Enhanced Hero Section with Parallax */
-    .hero-section {
-      min-height: 100vh;
-      padding: 150px 50px 100px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      background: linear-gradient(135deg,
-          var(--bg-white) 0%,
-          var(--bg-light) 100%);
-      overflow: hidden;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle,
-          rgba(255, 107, 53, 0.1) 0%,
-          transparent 70%);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translate(0, 0) rotate(0deg);
+      .faq-accordion-item.active .faq-accordion-content {
+        display: block;
       }
 
-      50% {
-        transform: translate(-30px, -30px) rotate(180deg);
-      }
-    }
-
-    .hero-content {
-      flex: 1;
-      max-width: 600px;
-      z-index: 2;
-    }
-
-    .try-free-btn {
-      display: inline-block;
-      padding: 18px 50px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
+      .faq-accordion-item.active .faq-accordion-icon {
+        transform: rotate(180deg);
       }
 
-      50% {
+      @media (max-width: 640px) {
+        .faq-title {
+          font-size: 1.75rem;
+        }
+
+        .faq-accordion-header {
+          font-size: 1rem;
+        }
+      }
+
+      /* ---------------------------------------------------- */
+
+      /* Enhanced Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+      }
+
+      nav.scrolled {
+        padding: 15px 50px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover {
         transform: scale(1.05);
       }
 
-      100% {
-        transform: scale(1);
+      .logo span:first-child {
+        color: var(--primary-color);
+        animation: colorPulse 3s ease-in-out infinite;
       }
-    }
 
-    .try-free-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
-      animation: none;
-    }
+      @keyframes colorPulse {
+        0%,
+        100% {
+          color: var(--primary-color);
+        }
 
-    .hero-content h1 {
-      font-size: 4rem;
-      line-height: 1.2;
-      margin-bottom: 30px;
-      color: var(--text-dark);
-      animation: slideInLeft 1s ease-out;
-    }
+        50% {
+          color: #ff8c5a;
+        }
+      }
 
-    .hero-content h1 .highlight {
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-    }
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
 
-    .hero-content h1 .highlight::after {
-      content: "";
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      width: 100%;
-      height: 15px;
-      background: rgba(255, 107, 53, 0.3);
-      z-index: -1;
-      animation: highlightGrow 1s ease-out 0.5s both;
-    }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        padding: 5px 0;
+      }
 
-    @keyframes highlightGrow {
-      from {
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
         width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      to {
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
         width: 100%;
       }
-    }
 
-    .hero-content p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 40px;
-      animation: slideInUp 1s ease-out 0.3s both;
-    }
-
-    .download-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      animation: slideInUp 1s ease-out 0.6s both;
-    }
-
-    .download-btn {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 18px 35px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
-    }
-
-    .download-btn svg {
-      width: 30px;
-      height: 30px;
-      fill: white;
-      transition: transform 0.3s ease;
-    }
-
-    .download-btn:hover svg {
-      transform: scale(1.2);
-    }
-
-    .hero-image {
-      flex: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 800px;
-      perspective: 1000px;
-    }
-
-    .phone-mockup {
-      width: 350px;
-      height: 700px;
-      background: white;
-      border-radius: 50px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-      padding: 15px;
-      position: relative;
-      border: 12px solid #1a1a1a;
-      z-index: 2;
-      transform: rotateY(-15deg) rotateX(5deg);
-      animation: phoneFloat 4s ease-in-out infinite;
-      transition: transform 0.3s ease;
-    }
-
-    .phone-mockup:hover {
-      transform: rotateY(-10deg) rotateX(2deg) scale(1.05);
-    }
-
-    @keyframes phoneFloat {
-
-      0%,
-      100% {
-        transform: rotateY(-15deg) rotateX(5deg) translateY(0);
+      .nav-links a.active {
+        color: var(--primary-color);
       }
 
-      50% {
-        transform: rotateY(-15deg) rotateX(5deg) translateY(-20px);
-      }
-    }
-
-    /* Base phone screen style (override with image or color classes as needed) */
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 40px;
-      overflow: hidden;
-      position: relative;
-      /* Added styles for image containment */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .phone-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Enhanced Decorative Elements with Parallax */
-    .triangle-decoration {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background: var(--secondary-color);
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      z-index: 1;
-      transition: transform 0.1s ease-out;
-    }
-
-    .triangle-1 {
-      top: 10%;
-      right: 5%;
-      animation: triangleFloat 3s ease-in-out infinite;
-    }
-
-    .triangle-2 {
-      bottom: 10%;
-      right: 8%;
-      animation: triangleFloat 3s ease-in-out infinite 1s;
-    }
-
-    @keyframes triangleFloat {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-30px) rotate(180deg);
-      }
-    }
-
-    .floating-square {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border: 3px dashed var(--accent-color);
-      border-radius: 15px;
-      top: 50%;
-      right: 40%;
-      z-index: 1;
-      animation: squareRotate 8s linear infinite;
-      transition: transform 0.1s ease-out;
-    }
-
-    @keyframes squareRotate {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .dots-pattern {
-      position: absolute;
-      display: grid;
-      grid-template-columns: repeat(4, 8px);
-      gap: 8px;
-      top: 60%;
-      right: 35%;
-      z-index: 1;
-      transition: transform 0.1s ease-out;
-    }
-
-    .dots-pattern span {
-      width: 8px;
-      height: 8px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      animation: dotPulse 2s ease-in-out infinite;
-    }
-
-    .dots-pattern span:nth-child(2n) {
-      animation-delay: 0.5s;
-    }
-
-    .dots-pattern span:nth-child(3n) {
-      animation-delay: 1s;
-    }
-
-    @keyframes dotPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 0.5;
-      }
-    }
-
-    /* Problem Section */
-    .problem-section {
-      min-height: 80vh;
-      padding: 100px 50px;
-      background: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .problem-card {
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .problem-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .problem-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
-    }
-
-    /* Solution Section */
-    .solution-section {
-      min-height: 90vh;
-      padding: 100px 50px;
-      background: var(--bg-light);
-      position: relative;
-    }
-
-    .solution-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-      margin-top: 60px;
-    }
-
-    .solution-card {
-      background: white;
-      padding: 45px;
-      border-radius: 25px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    .solution-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .solution-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(90deg, var(--primary-color), #ff8c5a);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-
-    .solution-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .solution-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 25px 60px rgba(255, 107, 53, 0.2);
-    }
-
-    .solution-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary-color), #ff8c5a);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin-bottom: 25px;
-      transition: all 0.3s ease;
-    }
-
-    .solution-card:hover .solution-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    /* Market Insights Section */
-    .insights-section {
-      min-height: 80vh;
-      padding: 100px 50px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .insights-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/></svg>');
-      background-size: 150px 150px;
-      animation: backgroundFloat 20s linear infinite;
-    }
-
-    .insights-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 60px;
-    }
-
-    .insight-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 35px;
-      border-radius: 20px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: scale(0.9);
-    }
-
-    .insight-card.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .insight-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-10px) scale(1.05);
-    }
-
-    .insight-number {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      background: linear-gradient(45deg, #fff, #ffd89b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Community Section */
-    .community-section {
-      min-height: 80vh;
-      padding: 100px 50px;
-      background: white;
-      position: relative;
-    }
-
-    .community-benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-      max-width: 1200px;
-      margin: 60px auto 0;
-    }
-
-    .benefit-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 30px;
-      background: var(--bg-light);
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-
-    .benefit-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .benefit-item:hover {
-      background: var(--secondary-color);
-      transform: translateX(10px);
-    }
-
-    .benefit-icon {
-      font-size: 2.5rem;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-
-    .benefit-item:hover .benefit-icon {
-      transform: scale(1.2) rotate(10deg);
-    }
-
-    /* Enhanced How It Works Section */
-    .how-works-section {
-      min-height: 100vh;
-      padding: 100px 50px;
-      background: var(--bg-light);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .how-works-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffd4c4" opacity="0.3"/><circle cx="80" cy="40" r="1" fill="%23ffb399" opacity="0.3"/><circle cx="40" cy="80" r="1.5" fill="%23ff6b35" opacity="0.3"/></svg>');
-      background-size: 200px 200px;
-      animation: backgroundFloat 20s linear infinite;
-    }
-
-    @keyframes backgroundFloat {
-      0% {
-        transform: translate(0, 0);
-      }
-
-      100% {
-        transform: translate(-100px, -100px);
-      }
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: var(--text-dark);
-      position: relative;
-      z-index: 2;
-    }
-
-    .section-title .highlight {
-      color: var(--primary-color);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      color: var(--text-light);
-      max-width: 900px;
-      margin: 0 auto 80px;
-      line-height: 1.8;
-      position: relative;
-      z-index: 2;
-    }
-
-    .features-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-      max-width: 1400px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .features-left,
-    .features-right {
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-    }
-
-    .feature-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 250px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .feature-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .feature-number {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .feature-number::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-      opacity: 0.3;
-      animation: ripple 2s ease-in-out infinite;
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(1);
-        opacity: 0.3;
-      }
-
-      100% {
-        transform: scale(1.5);
-        opacity: 0;
-      }
-    }
-
-    .feature-number.light {
-      background: var(--secondary-color);
-      color: var(--primary-color);
-    }
-
-    .feature-number.dark {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .feature-item:hover .feature-number {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .feature-item h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: var(--text-dark);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .feature-item:hover h3 {
-      color: var(--primary-color);
-    }
-
-    .feature-item p {
-      color: var(--text-light);
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .center-phone {
-      width: 350px;
-      height: 700px;
-      background: white;
-      border-radius: 50px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-      padding: 15px;
-      border: 12px solid #1a1a1a;
-      transform: scale(1);
-      transition: transform 0.3s ease;
-    }
-
-    .center-phone:hover {
-      transform: scale(1.05);
-    }
-
-    /* Enhanced Ready Section */
-    .ready-section {
-      min-height: 100vh;
-      padding: 100px 50px;
-      background: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ready-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-      gap: 80px;
-    }
-
-    .phones-stack {
-      position: relative;
-      width: 500px;
-      height: 600px;
-      perspective: 1000px;
-    }
-
-    .stacked-phone {
-      position: absolute;
-      width: 300px;
-      height: 600px;
-      background: white;
-      border-radius: 45px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-      border: 10px solid #1a1a1a;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stacked-phone:first-child {
-      left: 0;
-      transform: rotate(-15deg) translateY(0);
-      z-index: 1;
-      animation: phoneStackFloat1 3s ease-in-out infinite;
-    }
-
-    .stacked-phone:last-child {
-      right: 0;
-      transform: rotate(5deg) translateY(0);
-      z-index: 2;
-      animation: phoneStackFloat2 3s ease-in-out infinite 1s;
-    }
-
-    @keyframes phoneStackFloat1 {
-
-      0%,
-      100% {
-        transform: rotate(-15deg) translateY(0);
-      }
-
-      50% {
-        transform: rotate(-15deg) translateY(-15px);
-      }
-    }
-
-    @keyframes phoneStackFloat2 {
-
-      0%,
-      100% {
-        transform: rotate(5deg) translateY(0);
-      }
-
-      50% {
-        transform: rotate(5deg) translateY(-15px);
-      }
-    }
-
-    .orange-circle {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      background: var(--primary-color);
-      border-radius: 50%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      animation: circlePulse 4s ease-in-out infinite;
-    }
-
-    @keyframes circlePulse {
-
-      0%,
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      50% {
-        transform: translate(-50%, -50%) scale(1.1);
-      }
-    }
-
-    .ready-features {
-      flex: 1;
-    }
-
-    .feature-box {
-      background: var(--bg-light);
-      padding: 30px;
-      border-radius: 20px;
-      margin-bottom: 30px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 107, 53, 0.1),
-          transparent);
-      transition: left 0.5s ease;
-    }
-
-    .feature-box:hover::before {
-      left: 100%;
-    }
-
-    .feature-box.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: white;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-box:hover .feature-icon {
-      transform: scale(1.1) rotate(10deg);
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .feature-box h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: var(--text-dark);
-      transition: color 0.3s ease;
-    }
-
-    .feature-box:hover h3 {
-      color: var(--primary-color);
-    }
-
-    .feature-box p {
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* Enhanced Testimonials */
-    .testimonials-section {
-      min-height: 100vh;
-      padding: 100px 50px;
-      background: var(--bg-light);
-      position: relative;
-    }
-
-    .testimonials-header {
-      max-width: 500px;
-      margin-bottom: 60px;
-    }
-
-    .testimonials-header h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      color: var(--text-dark);
-    }
-
-    .testimonials-header p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
-
-    .nav-arrows {
-      display: flex;
-      gap: 15px;
-    }
-
-    .arrow-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: var(--primary-color);
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .arrow-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-    }
-
-    .arrow-btn:active {
-      transform: scale(0.95);
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      margin-bottom: 100px;
-    }
-
-    .testimonial-card {
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary-color), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.5s ease;
-    }
-
-    .testimonial-card:hover::before {
-      transform: translateX(0);
-    }
-
-    .testimonial-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .quote-icon {
-      font-size: 4rem;
-      color: #e8f4ff;
-      margin-bottom: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover .quote-icon {
-      color: var(--primary-color);
-      transform: scale(1.1);
-    }
-
-    .testimonial-text {
-      color: #333;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .stars {
-      color: #4caf50;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding-top: 20px;
-      border-top: 2px solid #f0f0f0;
-    }
-
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(135deg,
-          #ffd89b 0%,
-          var(--primary-color) 100%);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover .author-avatar {
-      transform: scale(1.1);
-    }
-
-    .author-info h4 {
-      color: var(--text-dark);
-      margin-bottom: 3px;
-      transition: color 0.3s ease;
-    }
-
-    .testimonial-card:hover .author-info h4 {
-      color: var(--primary-color);
-    }
-
-    .author-info p {
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    /* Enhanced CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg,
-          var(--primary-color) 0%,
-          #ff8c5a 100%);
-      padding: 100px 50px;
-      border-radius: 50px 50px 0 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 70%);
-      animation: ctaGlow 8s ease-in-out infinite;
-    }
-
-    @keyframes ctaGlow {
-
-      0%,
-      100% {
-        transform: rotate(0deg);
-      }
-
-      50% {
-        transform: rotate(180deg);
-      }
-    }
-
-    .cta-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .cta-text {
-      color: white;
-      max-width: 500px;
-    }
-
-    .cta-text h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-    }
-
-    .cta-text h2 .highlight {
-      color: var(--text-dark);
-      background: white;
-      padding: 0 10px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-
-    .cta-text p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    .cta-btn {
-      padding: 18px 50px;
-      background: white;
-      color: var(--primary-color);
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .cta-btn:active {
-      transform: translateY(-2px);
-    }
-
-    .cta-phones {
-      position: relative;
-      width: 500px;
-      height: 500px;
-      perspective: 1000px;
-    }
-
-    .cta-phone {
-      position: absolute;
-      width: 280px;
-      height: 560px;
-      background: white;
-      border-radius: 40px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-      border: 10px solid #1a1a1a;
-      overflow: hidden;
-    }
-
-    .cta-phone .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 25px;
-    }
-
-    .cta-phone:first-child {
-      right: 100px;
-      top: 0;
-      z-index: 2;
-      animation: ctaFloat1 4s ease-in-out infinite;
-    }
-
-    .cta-phone:last-child {
-      right: 0;
-      top: 80px;
-      z-index: 1;
-      transform: scale(0.9);
-      animation: ctaFloat2 4s ease-in-out infinite 1.5s;
-    }
-
-    @keyframes ctaFloat1 {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-15px) rotate(2deg);
-      }
-    }
-
-    @keyframes ctaFloat2 {
-
-      0%,
-      100% {
-        transform: scale(0.9) translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: scale(0.9) translateY(-15px) rotate(-2deg);
-      }
-    }
-
-    /* Enhanced Footer */
-    footer {
-      background: white;
-      padding: 80px 50px 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    footer::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="%23ffd4c4" opacity="0.2"/><circle cx="90" cy="90" r="1.5" fill="%23ffb399" opacity="0.2"/></svg>');
-      background-size: 150px 150px;
-      animation: footerFloat 15s linear infinite;
-    }
-
-    @keyframes footerFloat {
-      0% {
-        transform: translate(0, 0);
-      }
-
-      100% {
-        transform: translate(-150px, -150px);
-      }
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 50px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .footer-brand p {
-      color: var(--text-light);
-      margin: 20px 0;
-      line-height: 1.6;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-links a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
-    }
-
-    .social-links a::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover::before {
-      width: 100px;
-      height: 100px;
-    }
-
-    .footer-section h3 {
-      color: var(--text-dark);
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-      position: relative;
-    }
-
-    .footer-section h3::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background: var(--primary-color);
-      transition: width 0.3s ease;
-    }
-
-    .footer-section:hover h3::after {
-      width: 50px;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 12px;
-    }
-
-    .footer-section ul li a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .footer-section ul li a::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--primary-color);
-      transition: width 0.3s ease;
-    }
-
-    .footer-section ul li a:hover::after {
-      width: 100%;
-    }
-
-    .footer-section ul li a:hover {
-      color: var(--primary-color);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 30px;
-      border-top: 1px solid #e0e0e0;
-      color: var(--text-light);
-      position: relative;
-      z-index: 2;
-    }
-
-    .footer-bottom .highlight {
-      color: var(--primary-color);
-    }
-
-    /* Keyframe Animations */
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* ---------------------------------------------------- */
-    /* MOBILE / SMALL-TABLET  RESPONSIVE  OVERRIDES        */
-    /* ---------------------------------------------------- */
-
-    /* 0. Reset base font-size for easier rem maths */
-    html {
-      font-size: 16px;
-    }
-
-    body {
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* 1. ≤ 768 px (phones in portrait + small tablets) */
-    @media (max-width: 768px) {
-
-      /* --- NAV --- */
-      nav {
-        padding: 12px 20px;
-      }
-
-      .nav-links,
       .nav-buttons {
-        display: none;
-      }
-
-      /* classic “hamburger later” */
-      .logo {
-        font-size: 1.4rem;
-      }
-
-      /* --- HERO --- */
-      .hero-section {
-        flex-direction: column;
-        padding: 100px 20px 60px;
-        text-align: center;
-        min-height: auto;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .download-buttons {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
         gap: 15px;
       }
 
-      .phone-mockup {
-        width: 200px;
-        height: 400px;
-        margin-top: 40px;
+      .btn-outline,
+      .btn-filled {
+        padding: 12px 30px;
+        border: 2px solid var(--primary-color);
+        background: white;
+        color: var(--primary-color);
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
 
-      /* --- GLOBAL SECTIONS --- */
+      .btn-filled {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .btn-outline::before,
+      .btn-filled::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 107, 53, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease;
+      }
+
+      .btn-outline:hover::before,
+      .btn-filled:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .btn-filled:hover,
+      .btn-outline:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+      }
+
+      /* Enhanced Hero Section with Parallax */
+      .hero-section {
+        min-height: 100vh;
+        padding: 150px 50px 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          var(--bg-white) 0%,
+          var(--bg-light) 100%
+        );
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 53, 0.1) 0%,
+          transparent 70%
+        );
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+
+        50% {
+          transform: translate(-30px, -30px) rotate(180deg);
+        }
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+        z-index: 2;
+      }
+
+      .try-free-btn {
+        display: inline-block;
+        padding: 18px 50px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.05);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .try-free-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        animation: none;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        color: var(--text-dark);
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .hero-content h1 .highlight {
+        color: var(--primary-color);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero-content h1 .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+        background: rgba(255, 107, 53, 0.3);
+        z-index: -1;
+        animation: highlightGrow 1s ease-out 0.5s both;
+      }
+
+      @keyframes highlightGrow {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 40px;
+        animation: slideInUp 1s ease-out 0.3s both;
+      }
+
+      .download-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        animation: slideInUp 1s ease-out 0.6s both;
+      }
+
+      .download-btn {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 18px 35px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .download-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+      }
+
+      .download-btn svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+        transition: transform 0.3s ease;
+      }
+
+      .download-btn:hover svg {
+        transform: scale(1.2);
+      }
+
+      .hero-image {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 800px;
+        perspective: 1000px;
+      }
+
+      .phone-mockup {
+        width: 350px;
+        height: 700px;
+        background: white;
+        border-radius: 50px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        position: relative;
+        border: 12px solid #1a1a1a;
+        z-index: 2;
+        transform: rotateY(-15deg) rotateX(5deg);
+        animation: phoneFloat 4s ease-in-out infinite;
+        transition: transform 0.3s ease;
+      }
+
+      .phone-mockup:hover {
+        transform: rotateY(-10deg) rotateX(2deg) scale(1.05);
+      }
+
+      @keyframes phoneFloat {
+        0%,
+        100% {
+          transform: rotateY(-15deg) rotateX(5deg) translateY(0);
+        }
+
+        50% {
+          transform: rotateY(-15deg) rotateX(5deg) translateY(-20px);
+        }
+      }
+
+      /* Base phone screen style (override with image or color classes as needed) */
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        /* Added styles for image containment */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .phone-screen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Enhanced Decorative Elements with Parallax */
+      .triangle-decoration {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: var(--secondary-color);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        z-index: 1;
+        transition: transform 0.1s ease-out;
+      }
+
+      .triangle-1 {
+        top: 10%;
+        right: 5%;
+        animation: triangleFloat 3s ease-in-out infinite;
+      }
+
+      .triangle-2 {
+        bottom: 10%;
+        right: 8%;
+        animation: triangleFloat 3s ease-in-out infinite 1s;
+      }
+
+      @keyframes triangleFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-30px) rotate(180deg);
+        }
+      }
+
+      .floating-square {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 3px dashed var(--accent-color);
+        border-radius: 15px;
+        top: 50%;
+        right: 40%;
+        z-index: 1;
+        animation: squareRotate 8s linear infinite;
+        transition: transform 0.1s ease-out;
+      }
+
+      @keyframes squareRotate {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .dots-pattern {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(4, 8px);
+        gap: 8px;
+        top: 60%;
+        right: 35%;
+        z-index: 1;
+        transition: transform 0.1s ease-out;
+      }
+
+      .dots-pattern span {
+        width: 8px;
+        height: 8px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: dotPulse 2s ease-in-out infinite;
+      }
+
+      .dots-pattern span:nth-child(2n) {
+        animation-delay: 0.5s;
+      }
+
+      .dots-pattern span:nth-child(3n) {
+        animation-delay: 1s;
+      }
+
+      @keyframes dotPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          transform: scale(1.5);
+          opacity: 0.5;
+        }
+      }
+
+      /* Problem Section */
+      .problem-section {
+        min-height: 80vh;
+        padding: 100px 50px;
+        background: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .problem-card {
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .problem-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .problem-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      /* Solution Section */
+      .solution-section {
+        min-height: 90vh;
+        padding: 100px 50px;
+        background: var(--bg-light);
+        position: relative;
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        margin-top: 60px;
+      }
+
+      .solution-card {
+        background: white;
+        padding: 45px;
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .solution-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .solution-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, var(--primary-color), #ff8c5a);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .solution-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .solution-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 60px rgba(255, 107, 53, 0.2);
+      }
+
+      .solution-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-color), #ff8c5a);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .solution-card:hover .solution-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Market Insights Section */
+      .insights-section {
+        min-height: 80vh;
+        padding: 100px 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .insights-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/></svg>');
+        background-size: 150px 150px;
+        animation: backgroundFloat 20s linear infinite;
+      }
+
+      .insights-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .insight-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 35px;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      .insight-card.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .insight-card:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-10px) scale(1.05);
+      }
+
+      .insight-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        background: linear-gradient(45deg, #fff, #ffd89b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Community Section */
+      .community-section {
+        min-height: 80vh;
+        padding: 100px 50px;
+        background: white;
+        position: relative;
+      }
+
+      .community-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 35px;
+        max-width: 1200px;
+        margin: 60px auto 0;
+      }
+
+      .benefit-item {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        padding: 30px;
+        background: var(--bg-light);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      .benefit-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .benefit-item:hover {
+        background: var(--secondary-color);
+        transform: translateX(10px);
+      }
+
+      .benefit-icon {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .benefit-item:hover .benefit-icon {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      /* Enhanced How It Works Section */
+      .how-works-section {
+        min-height: 100vh;
+        padding: 100px 50px;
+        background: var(--bg-light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .how-works-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffd4c4" opacity="0.3"/><circle cx="80" cy="40" r="1" fill="%23ffb399" opacity="0.3"/><circle cx="40" cy="80" r="1.5" fill="%23ff6b35" opacity="0.3"/></svg>');
+        background-size: 200px 200px;
+        animation: backgroundFloat 20s linear infinite;
+      }
+
+      @keyframes backgroundFloat {
+        0% {
+          transform: translate(0, 0);
+        }
+
+        100% {
+          transform: translate(-100px, -100px);
+        }
+      }
+
       .section-title {
-        font-size: 1.8rem;
+        text-align: center;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-title .highlight {
+        color: var(--primary-color);
       }
 
       .section-subtitle {
-        font-size: 0.95rem;
-        padding: 0 10px;
-      }
-
-      /* --- PROBLEM / SOLUTION / COMMUNITY --- */
-      .problem-section,
-      .solution-section,
-      .community-section,
-      .insights-section {
-        padding: 60px 20px;
-      }
-
-      .solution-grid,
-      .community-benefits,
-      .insights-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      /* --- HOW-IT-WORKS --- */
-      .how-works-section {
-        padding: 60px 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 900px;
+        margin: 0 auto 80px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 2;
       }
 
       .features-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .features-left,
+      .features-right {
+        display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 100px;
+      }
+
+      .feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 250px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .feature-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .feature-number {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .feature-number::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: inherit;
+        opacity: 0.3;
+        animation: ripple 2s ease-in-out infinite;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .feature-number.light {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .feature-number.dark {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .feature-item:hover .feature-number {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .feature-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover h3 {
+        color: var(--primary-color);
+      }
+
+      .feature-item p {
+        color: var(--text-light);
+        text-align: center;
+        line-height: 1.6;
       }
 
       .center-phone {
-        width: 200px;
-        height: 400px;
+        width: 350px;
+        height: 700px;
+        background: white;
+        border-radius: 50px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        border: 12px solid #1a1a1a;
+        transform: scale(1);
+        transition: transform 0.3s ease;
       }
 
-      /* --- READY SECTION --- */
+      .center-phone:hover {
+        transform: scale(1.05);
+      }
+
+      /* Enhanced Ready Section */
       .ready-section {
-        padding: 60px 20px;
+        min-height: 100vh;
+        padding: 100px 50px;
+        background: white;
+        position: relative;
+        overflow: hidden;
       }
 
       .ready-container {
-        flex-direction: column;
-        gap: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 80px;
       }
 
       .phones-stack {
-        width: 100%;
-        height: 320px;
+        position: relative;
+        width: 500px;
+        height: 600px;
+        perspective: 1000px;
       }
 
       .stacked-phone {
-        width: 180px;
-        height: 360px;
+        position: absolute;
+        width: 300px;
+        height: 600px;
+        background: white;
+        border-radius: 45px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border: 10px solid #1a1a1a;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      /* --- TESTIMONIALS --- */
+      .stacked-phone:first-child {
+        left: 0;
+        transform: rotate(-15deg) translateY(0);
+        z-index: 1;
+        animation: phoneStackFloat1 3s ease-in-out infinite;
+      }
+
+      .stacked-phone:last-child {
+        right: 0;
+        transform: rotate(5deg) translateY(0);
+        z-index: 2;
+        animation: phoneStackFloat2 3s ease-in-out infinite 1s;
+      }
+
+      @keyframes phoneStackFloat1 {
+        0%,
+        100% {
+          transform: rotate(-15deg) translateY(0);
+        }
+
+        50% {
+          transform: rotate(-15deg) translateY(-15px);
+        }
+      }
+
+      @keyframes phoneStackFloat2 {
+        0%,
+        100% {
+          transform: rotate(5deg) translateY(0);
+        }
+
+        50% {
+          transform: rotate(5deg) translateY(-15px);
+        }
+      }
+
+      .orange-circle {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        animation: circlePulse 4s ease-in-out infinite;
+      }
+
+      @keyframes circlePulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+
+      .ready-features {
+        flex: 1;
+      }
+
+      .feature-box {
+        background: var(--bg-light);
+        padding: 30px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 107, 53, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .feature-box:hover::before {
+        left: 100%;
+      }
+
+      .feature-box.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-box:hover .feature-icon {
+        transform: scale(1.1) rotate(10deg);
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .feature-box h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+        transition: color 0.3s ease;
+      }
+
+      .feature-box:hover h3 {
+        color: var(--primary-color);
+      }
+
+      .feature-box p {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Enhanced Testimonials */
       .testimonials-section {
-        padding: 60px 20px;
+        min-height: 100vh;
+        padding: 100px 50px;
+        background: var(--bg-light);
+        position: relative;
       }
 
       .testimonials-header {
-        text-align: center;
+        max-width: 500px;
+        margin-bottom: 60px;
+      }
+
+      .testimonials-header h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+      }
+
+      .testimonials-header p {
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .nav-arrows {
+        display: flex;
+        gap: 15px;
+      }
+
+      .arrow-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: var(--primary-color);
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .arrow-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+      }
+
+      .arrow-btn:active {
+        transform: scale(0.95);
       }
 
       .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 100px;
       }
 
-      /* --- CTA --- */
+      .testimonial-card {
+        background: white;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      .testimonial-card:hover::before {
+        transform: translateX(0);
+      }
+
+      .testimonial-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote-icon {
+        font-size: 4rem;
+        color: #e8f4ff;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover .quote-icon {
+        color: var(--primary-color);
+        transform: scale(1.1);
+      }
+
+      .testimonial-text {
+        color: #333;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .stars {
+        color: #4caf50;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-top: 20px;
+        border-top: 2px solid #f0f0f0;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          #ffd89b 0%,
+          var(--primary-color) 100%
+        );
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover .author-avatar {
+        transform: scale(1.1);
+      }
+
+      .author-info h4 {
+        color: var(--text-dark);
+        margin-bottom: 3px;
+        transition: color 0.3s ease;
+      }
+
+      .testimonial-card:hover .author-info h4 {
+        color: var(--primary-color);
+      }
+
+      .author-info p {
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      /* Enhanced CTA Section */
       .cta-section {
-        padding: 60px 20px;
-        border-radius: 30px 30px 0 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #ff8c5a 100%
+        );
+        padding: 100px 50px;
+        border-radius: 50px 50px 0 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: ctaGlow 8s ease-in-out infinite;
+      }
+
+      @keyframes ctaGlow {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+
+        50% {
+          transform: rotate(180deg);
+        }
       }
 
       .cta-content {
-        flex-direction: column;
-        text-align: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-text {
+        color: white;
+        max-width: 500px;
+      }
+
+      .cta-text h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+      }
+
+      .cta-text h2 .highlight {
+        color: var(--text-dark);
+        background: white;
+        padding: 0 10px;
+        border-radius: 10px;
+        display: inline-block;
+      }
+
+      .cta-text p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        opacity: 0.9;
+      }
+
+      .cta-btn {
+        padding: 18px 50px;
+        background: white;
+        color: var(--primary-color);
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-btn:active {
+        transform: translateY(-2px);
+      }
+
+      .cta-phones {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        perspective: 1000px;
       }
 
       .cta-phone {
-        width: 160px;
-        height: 320px;
+        position: absolute;
+        width: 280px;
+        height: 560px;
+        background: white;
+        border-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        border: 10px solid #1a1a1a;
+        overflow: hidden;
       }
 
-      /* --- FOOTER --- */
+      .cta-phone .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 25px;
+      }
+
+      .cta-phone:first-child {
+        right: 100px;
+        top: 0;
+        z-index: 2;
+        animation: ctaFloat1 4s ease-in-out infinite;
+      }
+
+      .cta-phone:last-child {
+        right: 0;
+        top: 80px;
+        z-index: 1;
+        transform: scale(0.9);
+        animation: ctaFloat2 4s ease-in-out infinite 1.5s;
+      }
+
+      @keyframes ctaFloat1 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+      }
+
+      @keyframes ctaFloat2 {
+        0%,
+        100% {
+          transform: scale(0.9) translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: scale(0.9) translateY(-15px) rotate(-2deg);
+        }
+      }
+
+      /* Enhanced Footer */
       footer {
-        padding: 50px 20px 20px;
+        background: white;
+        padding: 80px 50px 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="%23ffd4c4" opacity="0.2"/><circle cx="90" cy="90" r="1.5" fill="%23ffb399" opacity="0.2"/></svg>');
+        background-size: 150px 150px;
+        animation: footerFloat 15s linear infinite;
+      }
+
+      @keyframes footerFloat {
+        0% {
+          transform: translate(0, 0);
+        }
+
+        100% {
+          transform: translate(-150px, -150px);
+        }
       }
 
       .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer-brand p {
+        color: var(--text-light);
+        margin: 20px 0;
+        line-height: 1.6;
       }
 
       .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        display: flex;
+        align-items: center;
         justify-content: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-
-      .phone-mockup,
-      .center-phone,
-      .stacked-phone,
-      .cta-phone {
-        border-radius: 25px !important;
-        border-width: 8px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
 
-      .phone-screen {
-        border-radius: 15px !important;
+      .social-links a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
       }
-    }
 
-    @media (max-width: 480px) {
+      .social-links a::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover::before {
+        width: 100px;
+        height: 100px;
+      }
+
+      .footer-section h3 {
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .footer-section:hover h3::after {
+        width: 50px;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-section ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .footer-section ul li a:hover::after {
+        width: 100%;
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--primary-color);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid #e0e0e0;
+        color: var(--text-light);
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer-bottom .highlight {
+        color: var(--primary-color);
+      }
+
+      /* Keyframe Animations */
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ---------------------------------------------------- */
+      /* MOBILE / SMALL-TABLET  RESPONSIVE  OVERRIDES        */
+      /* ---------------------------------------------------- */
+
+      /* 0. Reset base font-size for easier rem maths */
       html {
-        font-size: 14px;
+        font-size: 16px;
       }
 
-      /* slightly smaller type */
-      .hero-content h1 {
-        font-size: 1.8rem;
+      body {
+        -webkit-font-smoothing: antialiased;
       }
 
-      .try-free-btn,
-      .download-btn,
-      .cta-btn {
-        padding: 14px 30px;
-        font-size: 1rem;
+      /* 1. ≤ 768 px (phones in portrait + small tablets) */
+      @media (max-width: 768px) {
+        /* --- NAV --- */
+        nav {
+          padding: 12px 20px;
+        }
+
+        .nav-links,
+        .nav-buttons {
+          display: none;
+        }
+
+        /* classic “hamburger later” */
+        .logo {
+          font-size: 1.4rem;
+        }
+
+        /* --- HERO --- */
+        .hero-section {
+          flex-direction: column;
+          padding: 100px 20px 60px;
+          text-align: center;
+          min-height: auto;
+        }
+
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        .download-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .phone-mockup {
+          width: 200px;
+          height: 400px;
+          margin-top: 40px;
+        }
+
+        /* --- GLOBAL SECTIONS --- */
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .section-subtitle {
+          font-size: 0.95rem;
+          padding: 0 10px;
+        }
+
+        /* --- PROBLEM / SOLUTION / COMMUNITY --- */
+        .problem-section,
+        .solution-section,
+        .community-section,
+        .insights-section {
+          padding: 60px 20px;
+        }
+
+        .solution-grid,
+        .community-benefits,
+        .insights-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        /* --- HOW-IT-WORKS --- */
+        .how-works-section {
+          padding: 60px 20px;
+        }
+
+        .features-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .center-phone {
+          width: 200px;
+          height: 400px;
+        }
+
+        /* --- READY SECTION --- */
+        .ready-section {
+          padding: 60px 20px;
+        }
+
+        .ready-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .phones-stack {
+          width: 100%;
+          height: 320px;
+        }
+
+        .stacked-phone {
+          width: 180px;
+          height: 360px;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials-section {
+          padding: 60px 20px;
+        }
+
+        .testimonials-header {
+          text-align: center;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        /* --- CTA --- */
+        .cta-section {
+          padding: 60px 20px;
+          border-radius: 30px 30px 0 0;
+        }
+
+        .cta-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .cta-phone {
+          width: 160px;
+          height: 320px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+          padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
       }
-    }
 
-    /* Popup Styles */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      backdrop-filter: blur(4px);
-      animation: fadeIn 0.3s ease;
-    }
+      @media (max-width: 768px) {
+        .phone-mockup,
+        .center-phone,
+        .stacked-phone,
+        .cta-phone {
+          border-radius: 25px !important;
+          border-width: 8px;
+        }
 
-    .popup-box {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      animation: scaleIn 0.3s ease;
-    }
-
-    .popup-box h3 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
-    }
-
-    .popup-box p {
-      color: var(--text-light);
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
-
-    .popup-btn {
-      padding: 12px 30px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .popup-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
-    }
-
-    @keyframes scaleIn {
-      from {
-        transform: scale(0.8);
-        opacity: 0;
+        .phone-screen {
+          border-radius: 15px !important;
+        }
       }
 
-      to {
-        transform: scale(1);
-        opacity: 1;
+      @media (max-width: 480px) {
+        html {
+          font-size: 14px;
+        }
+
+        /* slightly smaller type */
+        .hero-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .try-free-btn,
+        .download-btn,
+        .cta-btn {
+          padding: 14px 30px;
+          font-size: 1rem;
+        }
       }
-    }
 
-    .btn-outline,
-    .btn-filled {
-      display: inline-block;
-      text-decoration: none;
-      text-align: center;
-    }
-  </style>
-</head>
+      /* Popup Styles */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        backdrop-filter: blur(4px);
+        animation: fadeIn 0.3s ease;
+      }
 
-<body>
-  <nav id="navbar">
-    <div class="logo"><span>Learner</span> <span>Space</span></div>
-    <ul class="nav-links">
-      <li><a href="#home" class="active">HOME</a></li>
-      <li><a href="#courses">HOW IT WORKS</a></li>
-      <li><a href="#explore">EXPLORE</a></li>
-      <li><a href="#blog">REVIEWS</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
+      .popup-box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        animation: scaleIn 0.3s ease;
+      }
 
-    </ul>
-    <div class="nav-buttons">
-      <button class="btn-filled">Get Started</button>
-      <a href="https://edtech.learnerspace.in/" class="btn-outline">Edtech</a>
+      .popup-box h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+      }
 
-    </div>
-  </nav>
+      .popup-box p {
+        color: var(--text-light);
+        margin-bottom: 25px;
+        line-height: 1.5;
+      }
 
-  <section class="hero-section" id="home">
-    <div class="hero-content">
-      <a href="#" class="try-free-btn">🚀 Try for free</a>
-      <h1>
-        Your Learning Journey Deserves Clarity
-        <span>Not Guesswork.</span>
-      </h1>
-      <p>
-        Discover your perfect learning platform personalized, unbiased, and
-        ready in under 60 seconds.
-      </p>
-      <div class="download-buttons">
-        <a href="#" class="download-btn">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-          </svg>
-          <div>
-            <div style="font-size: 0.85rem">Get it on</div>
-            <div>Google Play</div>
-          </div>
-        </a>
-        <a href="#" class="download-btn">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-          </svg>
-          <div>
-            <div style="font-size: 0.85rem">Download on the</div>
-            <div>App Store</div>
-          </div>
-        </a>
+      .popup-btn {
+        padding: 12px 30px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .popup-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .btn-outline,
+      .btn-filled {
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div class="logo"><span>Learner</span> <span>Space</span></div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">HOME</a></li>
+        <li><a href="#courses">HOW IT WORKS</a></li>
+        <li><a href="#explore">EXPLORE</a></li>
+        <li><a href="#blog">REVIEWS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="btn-filled">Get Started</button>
+        <a href="https://edtech.learnerspace.in/" class="btn-outline">Edtech</a>
       </div>
-    </div>
+    </nav>
 
-    <div class="hero-image">
-      <div class="triangle-decoration triangle-1"></div>
-      <div class="floating-square"></div>
-      <div class="dots-pattern">
-        <span></span><span></span><span></span><span></span> <span></span><span></span><span></span><span></span>
-      </div>
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <img src="./images/App1.png" alt="Learner Space App Home Screen" />
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <a href="#" class="try-free-btn">🚀 Try for free</a>
+        <h1>
+          Your Learning Journey Deserves Clarity
+          <span>Not Guesswork.</span>
+        </h1>
+        <p>
+          Discover your perfect learning platform personalized, unbiased, and
+          ready in under 60 seconds.
+        </p>
+        <div class="download-buttons">
+          <a href="#" class="download-btn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
+              />
+            </svg>
+            <div>
+              <div style="font-size: 0.85rem">Get it on</div>
+              <div>Google Play</div>
+            </div>
+          </a>
+          <a href="#" class="download-btn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"
+              />
+            </svg>
+            <div>
+              <div style="font-size: 0.85rem">Download on the</div>
+              <div>App Store</div>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="triangle-decoration triangle-2"></div>
-    </div>
-  </section>
 
-  <section class="problem-section">
-    <div style="
+      <div class="hero-image">
+        <div class="triangle-decoration triangle-1"></div>
+        <div class="floating-square"></div>
+        <div class="dots-pattern">
+          <span></span><span></span><span></span><span></span> <span></span
+          ><span></span><span></span><span></span>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <img src="./images/App1.png" alt="Learner Space App Home Screen" />
+          </div>
+        </div>
+        <div class="triangle-decoration triangle-2"></div>
+      </div>
+    </section>
+
+    <section class="problem-section">
+      <div
+        style="
           max-width: 1200px;
           margin: 0 auto;
           position: relative;
           z-index: 2;
-        ">
-      <h2 class="section-title">
-        The Challenge <span class="highlight">You Face</span>
-      </h2>
-      <p class="section-subtitle">
-        Navigating today's crowded learning marketplace shouldn't be
-        overwhelming. We understand your struggles.
-      </p>
+        "
+      >
+        <h2 class="section-title">
+          The Challenge <span class="highlight">You Face</span>
+        </h2>
+        <p class="section-subtitle">
+          Navigating today's crowded learning marketplace shouldn't be
+          overwhelming. We understand your struggles.
+        </p>
 
-      <div style="
+        <div
+          style="
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 60px;
-          ">
-        <div class="problem-card" style="
+          "
+        >
+          <div
+            class="problem-card"
+            style="
               background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
               padding: 40px;
               border-radius: 20px;
               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            ">
-          <div style="font-size: 3rem; margin-bottom: 20px">🔍</div>
-          <h3 style="
+            "
+          >
+            <div style="font-size: 3rem; margin-bottom: 20px">🔍</div>
+            <h3
+              style="
                 font-size: 1.4rem;
                 color: var(--text-dark);
                 margin-bottom: 15px;
-              ">
-            Discovery Chaos
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Finding the right course in a crowded market is like searching for
-            a needle in a haystack.
-          </p>
-        </div>
+              "
+            >
+              Discovery Chaos
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Finding the right course in a crowded market is like searching for
+              a needle in a haystack.
+            </p>
+          </div>
 
-        <div class="problem-card" style="
+          <div
+            class="problem-card"
+            style="
               background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
               padding: 40px;
               border-radius: 20px;
               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            ">
-          <div style="font-size: 3rem; margin-bottom: 20px">📢</div>
-          <h3 style="
+            "
+          >
+            <div style="font-size: 3rem; margin-bottom: 20px">📢</div>
+            <h3
+              style="
                 font-size: 1.4rem;
                 color: var(--text-dark);
                 margin-bottom: 15px;
-              ">
-            Information Overload
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Too many options, too much noise separating quality from quantity
-            is exhausting.
-          </p>
-        </div>
+              "
+            >
+              Information Overload
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Too many options, too much noise separating quality from quantity
+              is exhausting.
+            </p>
+          </div>
 
-        <div class="problem-card" style="
+          <div
+            class="problem-card"
+            style="
               background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
               padding: 40px;
               border-radius: 20px;
               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            ">
-          <div style="font-size: 3rem; margin-bottom: 20px">🤔</div>
-          <h3 style="
+            "
+          >
+            <div style="font-size: 3rem; margin-bottom: 20px">🤔</div>
+            <h3
+              style="
                 font-size: 1.4rem;
                 color: var(--text-dark);
                 margin-bottom: 15px;
-              ">
-            Platform Dependency
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Relying on search engines and social media to find relevant
-            programs limits your options.
-          </p>
+              "
+            >
+              Platform Dependency
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Relying on search engines and social media to find relevant
+              programs limits your options.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="solution-section">
-    <div style="max-width: 1400px; margin: 0 auto">
+    <section class="solution-section">
+      <div style="max-width: 1400px; margin: 0 auto">
+        <h2 class="section-title">
+          Your <span class="highlight">Smart Solution</span>
+        </h2>
+        <p class="section-subtitle">
+          We've built the ultimate platform to cut through the noise and connect
+          you with the perfect learning opportunities.
+        </p>
+
+        <div class="solution-grid">
+          <div class="solution-card">
+            <div class="solution-icon">⭐</div>
+            <h3
+              style="
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: var(--text-dark);
+              "
+            >
+              Smart Discovery
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Find relevant programs instantly with our AI-powered
+              recommendation engine. No more endless scrolling.
+            </p>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-icon">💎</div>
+            <h3
+              style="
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: var(--text-dark);
+              "
+            >
+              Verified Reviews
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Make informed decisions with authentic reviews, ratings, and
+              placement statistics from real learners.
+            </p>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-icon">💰</div>
+            <h3
+              style="
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: var(--text-dark);
+              "
+            >
+              Comparison
+            </h3>
+            <p style="color: var(--text-light); line-height: 1.7">
+              Compare prices, learning modes, and certification options across
+              institutions in one place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-works-section" id="courses">
       <h2 class="section-title">
-        Your <span class="highlight">Smart Solution</span>
+        How <span class="highlight">Learner</span> Space Works
       </h2>
       <p class="section-subtitle">
-        We've built the ultimate platform to cut through the noise and connect
-        you with the perfect learning opportunities.
+        Discover how Learner Space helps you find, compare, and choose the right
+        courses effortlessly.
       </p>
 
-      <div class="solution-grid">
-        <div class="solution-card">
-          <div class="solution-icon">⭐</div>
-          <h3 style="
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-                color: var(--text-dark);
-              ">
-            Smart Discovery
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Find relevant programs instantly with our AI-powered
-            recommendation engine. No more endless scrolling.
-          </p>
+      <div class="features-container">
+        <div class="features-left">
+          <div class="feature-item">
+            <div class="feature-number light">1</div>
+            <h3>Smart Filtering</h3>
+            <p>Filter And Find Perfect Courses Without The Noise</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-number dark">2</div>
+            <h3>Course Selection</h3>
+            <p>Choose from various Course types for your convenience.</p>
+          </div>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-icon">💎</div>
-          <h3 style="
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-                color: var(--text-dark);
-              ">
-            Verified Reviews
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Make informed decisions with authentic reviews, ratings, and
-            placement statistics from real learners.
-          </p>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-icon">💰</div>
-          <h3 style="
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-                color: var(--text-dark);
-              ">
-            Comparison
-          </h3>
-          <p style="color: var(--text-light); line-height: 1.7">
-            Compare prices, learning modes, and certification options across
-            institutions in one place.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="how-works-section" id="courses">
-    <h2 class="section-title">
-      How <span class="highlight">Learner</span> Space Works
-    </h2>
-    <p class="section-subtitle">
-      Discover how Learner Space helps you find, compare, and choose the right
-      courses effortlessly.
-    </p>
-
-    <div class="features-container">
-      <div class="features-left">
-        <div class="feature-item">
-          <div class="feature-number light">1</div>
-          <h3>Smart Filtering</h3>
-          <p>Filter And Find Perfect Courses Without The Noise</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-number dark">2</div>
-          <h3>Course Selection</h3>
-          <p>Choose from various Course types for your convenience.</p>
-        </div>
-      </div>
-
-      <div class="center-phone">
-        <div class="phone-screen">
-          <img src="./images/Home.png" alt="Learner Space App Feature Screen" />
-        </div>
-      </div>
-
-      <div class="features-right">
-        <div class="feature-item">
-          <div class="feature-number light">3</div>
-          <h3>AI Guide</h3>
-          <p>Safe and seamless Assistance option.</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-number light">4</div>
-          <h3>Course Ratings</h3>
-          <p>Rate Courses to ensure quality service.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ready-section" id="explore">
-    <h2 class="section-title">
-      Ready to <span class="highlight">Learn?</span>
-    </h2>
-    <p class="section-subtitle">
-      Start your journey with personalized courses, real learner insights, and
-      flexible learning options—all in one place.
-    </p>
-
-    <div class="ready-container">
-      <div class="phones-stack">
-        <div class="orange-circle"></div>
-        <div class="stacked-phone">
+        <div class="center-phone">
           <div class="phone-screen">
-            <img src="./images/App1.png" alt="App Screen 1" />
+            <img
+              src="./images/Home.png"
+              alt="Learner Space App Feature Screen"
+            />
           </div>
         </div>
-        <div class="stacked-phone">
-          <div class="phone-screen">
-            <img src="./images/App2.png" alt="App Screen 2" />
+
+        <div class="features-right">
+          <div class="feature-item">
+            <div class="feature-number light">3</div>
+            <h3>AI Guide</h3>
+            <p>Safe and seamless Assistance option.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-number light">4</div>
+            <h3>Course Ratings</h3>
+            <p>Rate Courses to ensure quality service.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="ready-features">
-        <div class="feature-box">
-          <div class="feature-icon">🏢</div>
-          <div>
-            <h3>Trusted Reviews</h3>
-            <p>
-              Explore authentic learner ratings and reviews before enrolling.
-            </p>
-          </div>
-        </div>
-        <div class="feature-box">
-          <div class="feature-icon">🚗</div>
-          <div>
-            <h3>Flexible Learning</h3>
-            <p>
-              Choose from online, hybrid, or self-paced options that suit you
-              best.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials-section" id="blog">
-    <div class="testimonials-header">
-      <h2>What Our Learner Say</h2>
-      <p>
-        Hear from students who’ve found their perfect courses with Learner
-        Space.
+    <section class="ready-section" id="explore">
+      <h2 class="section-title">
+        Ready to <span class="highlight">Learn?</span>
+      </h2>
+      <p class="section-subtitle">
+        Start your journey with personalized courses, real learner insights, and
+        flexible learning options—all in one place.
       </p>
-    </div>
 
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="quote-icon">"</div>
-        <p class="testimonial-text">
-          Simple and easy to use. Helped me find the right course quickly!
-        </p>
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div class="author-info">
-            <h4>Rohit</h4>
-            <p>Student</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="quote-icon">"</div>
-        <p class="testimonial-text">
-          Great app for comparing courses. Very helpful!
-        </p>
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div class="author-info">
-            <h4>Ananya Verma</h4>
-            <p>Graduate</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="quote-icon">"</div>
-        <p class="testimonial-text">
-          Loved the AI suggestions saved me so much time.
-        </p>
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div class="author-info">
-            <h4>Vikram Iyer</h4>
-            <p>Professional</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="cta-section" id="contact">
-      <div class="cta-content">
-        <div class="cta-text">
-          <h2>
-            Start your <span class="highlight">learning journey</span> today!
-          </h2>
-          <p>
-            Download Learner Space and find the course that fits you best.
-          </p>
-          <button class="cta-btn">Get Started</button>
-        </div>
-
-        <div class="cta-phones">
-          <div class="cta-phone">
+      <div class="ready-container">
+        <div class="phones-stack">
+          <div class="orange-circle"></div>
+          <div class="stacked-phone">
             <div class="phone-screen">
-              <img src="./images/Login.png" alt="App Download Screen 1" />
+              <img src="./images/App1.png" alt="App Screen 1" />
             </div>
           </div>
-          <div class="cta-phone">
+          <div class="stacked-phone">
             <div class="phone-screen">
-              <img src="./images/SignUp.png" alt="App Download Screen 2" />
+              <img src="./images/App2.png" alt="App Screen 2" />
+            </div>
+          </div>
+        </div>
+
+        <div class="ready-features">
+          <div class="feature-box">
+            <div class="feature-icon">🏢</div>
+            <div>
+              <h3>Trusted Reviews</h3>
+              <p>
+                Explore authentic learner ratings and reviews before enrolling.
+              </p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">🚗</div>
+            <div>
+              <h3>Flexible Learning</h3>
+              <p>
+                Choose from online, hybrid, or self-paced options that suit you
+                best.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </section>
 
-  <section class="faq-section">
-    <div class="faq-container">
-      <h2 class="faq-title">Frequently Asked Questions</h2>
+    <section class="testimonials-section" id="blog">
+      <div class="testimonials-header">
+        <h2>What Our Learner Say</h2>
+        <p>
+          Hear from students who’ve found their perfect courses with Learner
+          Space.
+        </p>
+      </div>
 
-      <div class="faq-accordion">
-        <div class="faq-accordion-item">
-          <button class="faq-accordion-header">
-            <span>Is Learner Space free?</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="faq-accordion-icon">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="faq-accordion-content">
-            Yes! Learner Space is completely free to use. We believe everyone
-            deserves access to clarity when choosing their learning path.
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">
+            Simple and easy to use. Helped me find the right course quickly!
+          </p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <h4>Rohit</h4>
+              <p>Student</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-accordion-item">
-          <button class="faq-accordion-header">
-            <span>How are recommendations made?</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="faq-accordion-icon">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="faq-accordion-content">
-            Our algorithm analyzes your goals, learning style, budget, and
-            preferences to match you with platforms that best fit your needs
-            all without bias or sponsorship.
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">
+            Great app for comparing courses. Very helpful!
+          </p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <h4>Ananya Verma</h4>
+              <p>Graduate</p>
+            </div>
           </div>
         </div>
 
-        <!-- <div class="faq-accordion-item">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">
+            Loved the AI suggestions saved me so much time.
+          </p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <h4>Vikram Iyer</h4>
+              <p>Professional</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="cta-section" id="contact">
+        <div class="cta-content">
+          <div class="cta-text">
+            <h2>
+              Start your <span class="highlight">learning journey</span> today!
+            </h2>
+            <p>
+              Download Learner Space and find the course that fits you best.
+            </p>
+            <button class="cta-btn">Get Started</button>
+          </div>
+
+          <div class="cta-phones">
+            <div class="cta-phone">
+              <div class="phone-screen">
+                <img src="./images/Login.png" alt="App Download Screen 1" />
+              </div>
+            </div>
+            <div class="cta-phone">
+              <div class="phone-screen">
+                <img src="./images/SignUp.png" alt="App Download Screen 2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-accordion">
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-header">
+              <span>Is Learner Space free?</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="faq-accordion-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div class="faq-accordion-content">
+              Yes! Learner Space is completely free to use. We believe everyone
+              deserves access to clarity when choosing their learning path.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-header">
+              <span>How are recommendations made?</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="faq-accordion-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div class="faq-accordion-content">
+              Our algorithm analyzes your goals, learning style, budget, and
+              preferences to match you with platforms that best fit your needs
+              all without bias or sponsorship.
+            </div>
+          </div>
+
+          <!-- <div class="faq-accordion-item">
             <button class="faq-accordion-header">
               <span>Are results unbiased?</span>
               <svg
@@ -2379,315 +2431,358 @@
             </div>
           </div> -->
 
-        <div class="faq-accordion-item">
-          <button class="faq-accordion-header">
-            <span>Will it work for my goals?</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="faq-accordion-icon">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="faq-accordion-content">
-            Whether you're learning a new skill, advancing your career, or
-            exploring a new field, Learner Space helps you find the right
-            platform for your unique journey.
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-header">
+              <span>Will it work for my goals?</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="faq-accordion-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div class="faq-accordion-content">
+              Whether you're learning a new skill, advancing your career, or
+              exploring a new field, Learner Space helps you find the right
+              platform for your unique journey.
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    const accordionItems = document.querySelectorAll(".faq-accordion-item");
+    <script>
+      const accordionItems = document.querySelectorAll(".faq-accordion-item");
 
-    accordionItems.forEach((item) => {
-      const header = item.querySelector(".faq-accordion-header");
+      accordionItems.forEach((item) => {
+        const header = item.querySelector(".faq-accordion-header");
 
-      header.addEventListener("click", () => {
-        const openItem = document.querySelector(".faq-accordion-item.active");
-        if (openItem && openItem !== item) {
-          openItem.classList.remove("active");
-        }
-        item.classList.toggle("active");
+        header.addEventListener("click", () => {
+          const openItem = document.querySelector(".faq-accordion-item.active");
+          if (openItem && openItem !== item) {
+            openItem.classList.remove("active");
+          }
+          item.classList.toggle("active");
+        });
       });
-    });
-  </script>
-  <footer>
-    <div class="footer-content">
-      <div class="footer-brand">
-        <div class="logo"><span>Learner</span> <span>Space</span></div>
-        <p>
-          Your personal guide to success. Join the growing community of
-          learners shaping their future one skill at a time.
-        </p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f">f</i></a>
-          <a href="#"><i class="fab fa-twitter">t</i></a>
-          <a href="#"><i class="fab fa-linkedin-in">in</i></a>
-          <a href="#"><i class="fab fa-instagram">ig</i></a>
+    </script>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo"><span>Learner</span> <span>Space</span></div>
+
+          <p>
+            Your personal guide to success. Join the growing community of
+            learners shaping their future one skill at a time.
+          </p>
+
+          <div class="social-links">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/learnerspaceofficial/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/learnerspace_ed?igsh=ZnowdHBjbHNxdzdo"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">How It Works</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#blog">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#courses">How It Works</a></li>
-          <li><a href="#explore">Explore</a></li>
-          <li><a href="#blog">Reviews</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <div class="footer-bottom">
+        © 2025 <span class="highlight">Learner Space</span>. All Rights
+        Reserved.
       </div>
+    </footer>
+    <div id="popup-overlay" class="popup-overlay">
+      <div class="popup-box">
+        <div class="popup-header">
+          <span class="popup-emoji">🚀</span>
+          <h3>The Learner Space app is almost ready.</h3>
+        </div>
 
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
+        <p>
+          We’re putting the final touches on a smarter, clearer way to choose
+          the right learning platform built for learners exactly like you.
+        </p>
 
-    <div class="footer-bottom">
-      © 2025 <span class="highlight">Learner Space</span>. All Rights
-      Reserved.
-    </div>
-  </footer>
-  <div id="popup-overlay" class="popup-overlay">
-    <div class="popup-box">
-      <div class="popup-header">
-        <span class="popup-emoji">🚀</span>
-        <h3>Exciting Things Are Coming!</h3>
-      </div>
-
-      <p>
-        The <strong>Learner Space</strong> mobile app is almost ready to launch.<br />
-        Get ready to explore smarter learning anytime, anywhere!
-      </p>
-
-      <div class="popup-footer">
-        <button id="close-popup" class="popup-btn">Got it! </button>
+        <div class="popup-footer">
+          <button id="close-popup" class="popup-btn">Got it!</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    // Enhanced smooth scroll reveal animations with Intersection Observer
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
-    };
+    <script>
+      // Enhanced smooth scroll reveal animations with Intersection Observer
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          // Add staggered delay for grid items
-          if (entry.target.classList.contains("testimonial-card")) {
-            const cards = entry.target.parentElement.children;
-            Array.from(cards).forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("visible");
-              }, index * 150);
-            });
-          }
-          if (entry.target.classList.contains("problem-card")) {
-            const cards = entry.target.parentElement.children;
-            Array.from(cards).forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("visible");
-              }, index * 200);
-            });
-          }
-          if (entry.target.classList.contains("solution-card")) {
-            const cards = entry.target.parentElement.children;
-            Array.from(cards).forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("visible");
-              }, index * 150);
-            });
-          }
-          if (entry.target.classList.contains("insight-card")) {
-            const cards = entry.target.parentElement.children;
-            Array.from(cards).forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("visible");
-              }, index * 150);
-            });
-          }
-          if (entry.target.classList.contains("benefit-item")) {
-            const items = entry.target.parentElement.children;
-            Array.from(items).forEach((item, index) => {
-              setTimeout(() => {
-                item.classList.add("visible");
-              }, index * 150);
-            });
-          }
-        }
-      });
-    }, observerOptions);
-
-    // Observe elements
-    document
-      .querySelectorAll(
-        ".feature-item, .feature-box, .testimonial-card, .problem-card, .solution-card, .insight-card, .benefit-item"
-      )
-      .forEach((el) => observer.observe(el));
-
-    // Enhanced navbar scroll effect
-    const nav = document.querySelector("nav");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
-    });
-
-    // Parallax effect for hero section
-    window.addEventListener("scroll", () => {
-      const scrolled = window.pageYOffset;
-      const parallaxElements = document.querySelectorAll(
-        ".triangle-decoration, .floating-square, .dots-pattern"
-      );
-
-      parallaxElements.forEach((element, index) => {
-        const speed = 0.5 + index * 0.1;
-        const yPos = -(scrolled * speed);
-        element.style.transform = `translateY(${yPos}px)`;
-      });
-
-      // Parallax for hero content
-      const heroContent = document.querySelector(".hero-content");
-      const heroImage = document.querySelector(".hero-image");
-
-      if (heroContent && heroImage) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
-    });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    });
-
-    // Enhanced button interactions
-    document
-      .querySelectorAll(".btn-outline, .btn-filled, .cta-btn, .arrow-btn")
-      .forEach((button) => {
-        button.addEventListener("mouseenter", function () {
-          this.style.transform = "translateY(-3px) scale(1.05)";
-        });
-
-        button.addEventListener("mouseleave", function () {
-          this.style.transform = "translateY(0) scale(1)";
-        });
-      });
-
-    // Testimonial carousel functionality
-    const arrowButtons = document.querySelectorAll(".arrow-btn");
-    const testimonialCards = document.querySelectorAll(".testimonial-card");
-    let currentIndex = 0;
-
-    arrowButtons.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        if (index === 0) {
-          // Previous button
-          currentIndex =
-            (currentIndex - 1 + testimonialCards.length) %
-            testimonialCards.length;
-        } else {
-          // Next button
-          currentIndex = (currentIndex + 1) % testimonialCards.length;
-        }
-
-        // Add swipe animation
-        testimonialCards.forEach((card) => {
-          card.style.transform = "translateX(-20px)";
-          card.style.opacity = "0.5";
-        });
-
-        setTimeout(() => {
-          testimonialCards.forEach((card) => {
-            card.style.transform = "translateX(0)";
-            card.style.opacity = "1";
-          });
-        }, 300);
-      });
-    });
-
-    // Add loading animation
-    window.addEventListener("load", () => {
-      document.body.style.opacity = "0";
-      document.body.style.transition = "opacity 0.5s ease";
-
-      setTimeout(() => {
-        document.body.style.opacity = "1";
-      }, 100);
-    });
-
-    // Intersection Observer for navbar active state
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            navLinks.forEach((link) => {
-              link.classList.remove("active");
-              if (link.getAttribute("href") === `#${id}`) {
-                link.classList.add("active");
-              }
+            entry.target.classList.add("visible");
+            // Add staggered delay for grid items
+            if (entry.target.classList.contains("testimonial-card")) {
+              const cards = entry.target.parentElement.children;
+              Array.from(cards).forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add("visible");
+                }, index * 150);
+              });
+            }
+            if (entry.target.classList.contains("problem-card")) {
+              const cards = entry.target.parentElement.children;
+              Array.from(cards).forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add("visible");
+                }, index * 200);
+              });
+            }
+            if (entry.target.classList.contains("solution-card")) {
+              const cards = entry.target.parentElement.children;
+              Array.from(cards).forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add("visible");
+                }, index * 150);
+              });
+            }
+            if (entry.target.classList.contains("insight-card")) {
+              const cards = entry.target.parentElement.children;
+              Array.from(cards).forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add("visible");
+                }, index * 150);
+              });
+            }
+            if (entry.target.classList.contains("benefit-item")) {
+              const items = entry.target.parentElement.children;
+              Array.from(items).forEach((item, index) => {
+                setTimeout(() => {
+                  item.classList.add("visible");
+                }, index * 150);
+              });
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements
+      document
+        .querySelectorAll(
+          ".feature-item, .feature-box, .testimonial-card, .problem-card, .solution-card, .insight-card, .benefit-item"
+        )
+        .forEach((el) => observer.observe(el));
+
+      // Enhanced navbar scroll effect
+      const nav = document.querySelector("nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(
+          ".triangle-decoration, .floating-square, .dots-pattern"
+        );
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5 + index * 0.1;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+
+        // Parallax for hero content
+        const heroContent = document.querySelector(".hero-content");
+        const heroImage = document.querySelector(".hero-image");
+
+        if (heroContent && heroImage) {
+          heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+          heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
           }
         });
-      },
-      { threshold: 0.5 }
-    );
-
-    sections.forEach((section) => sectionObserver.observe(section));
-
-    // Popup functionality for app download buttons
-    const popupOverlay = document.getElementById("popup-overlay");
-    const closePopup = document.getElementById("close-popup");
-
-    // When any download button is clicked
-    document.querySelectorAll(".download-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        popupOverlay.style.display = "flex";
       });
-    });
-    document.querySelectorAll(".btn-filled").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        popupOverlay.style.display = "flex";
+
+      // Enhanced button interactions
+      document
+        .querySelectorAll(".btn-outline, .btn-filled, .cta-btn, .arrow-btn")
+        .forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-3px) scale(1.05)";
+          });
+
+          button.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+
+      // Testimonial carousel functionality
+      const arrowButtons = document.querySelectorAll(".arrow-btn");
+      const testimonialCards = document.querySelectorAll(".testimonial-card");
+      let currentIndex = 0;
+
+      arrowButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          if (index === 0) {
+            // Previous button
+            currentIndex =
+              (currentIndex - 1 + testimonialCards.length) %
+              testimonialCards.length;
+          } else {
+            // Next button
+            currentIndex = (currentIndex + 1) % testimonialCards.length;
+          }
+
+          // Add swipe animation
+          testimonialCards.forEach((card) => {
+            card.style.transform = "translateX(-20px)";
+            card.style.opacity = "0.5";
+          });
+
+          setTimeout(() => {
+            testimonialCards.forEach((card) => {
+              card.style.transform = "translateX(0)";
+              card.style.opacity = "1";
+            });
+          }, 300);
+        });
       });
-    });
 
-    // Close popup when clicking the close button or outside the box
-    closePopup.addEventListener("click", () => {
-      popupOverlay.style.display = "none";
-    });
+      // Add loading animation
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease";
 
-    popupOverlay.addEventListener("click", (e) => {
-      if (e.target === popupOverlay) popupOverlay.style.display = "none";
-    });
-  </script>
-</body>
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
 
+      // Intersection Observer for navbar active state
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id");
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${id}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      // Popup functionality for app download buttons
+      const popupOverlay = document.getElementById("popup-overlay");
+      const closePopup = document.getElementById("close-popup");
+
+      // When any download button is clicked
+      document.querySelectorAll(".download-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          popupOverlay.style.display = "flex";
+        });
+      });
+      document.querySelectorAll(".btn-filled").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          popupOverlay.style.display = "flex";
+        });
+      });
+      document.querySelectorAll(".try-free-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          popupOverlay.style.display = "flex";
+        });
+      });
+      document.querySelectorAll(".cta-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          popupOverlay.style.display = "flex";
+        });
+      });
+
+      // Close popup when clicking the close button or outside the box
+      closePopup.addEventListener("click", () => {
+        popupOverlay.style.display = "none";
+      });
+
+      popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) popupOverlay.style.display = "none";
+      });
+    </script>
+  </body>
 </html>
