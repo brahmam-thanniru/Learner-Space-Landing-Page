@@ -1934,6 +1934,21 @@
         text-decoration: none;
         text-align: center;
       }
+      .solution-icon i {
+        color: #fff;
+        font-size: 2rem;
+      }
+      /* Default icon color (orange) */
+      .feature-icon i {
+        color: var(--primary-color);
+        font-size: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      /* On hover, .feature-icon already gets orange background — now icon becomes white */
+      .feature-box:hover .feature-icon i {
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -2121,7 +2136,9 @@
 
         <div class="solution-grid">
           <div class="solution-card">
-            <div class="solution-icon">⭐</div>
+            <div class="solution-icon">
+              <i class="fas fa-search"></i>
+            </div>
             <h3
               style="
                 font-size: 1.5rem;
@@ -2138,7 +2155,9 @@
           </div>
 
           <div class="solution-card">
-            <div class="solution-icon">💎</div>
+            <div class="solution-icon">
+              <i class="fas fa-star"></i>
+            </div>
             <h3
               style="
                 font-size: 1.5rem;
@@ -2155,7 +2174,9 @@
           </div>
 
           <div class="solution-card">
-            <div class="solution-icon">💰</div>
+            <div class="solution-icon">
+              <i class="fas fa-balance-scale"></i>
+            </div>
             <h3
               style="
                 font-size: 1.5rem;
@@ -2247,7 +2268,9 @@
 
         <div class="ready-features">
           <div class="feature-box">
-            <div class="feature-icon">🏢</div>
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
             <div>
               <h3>Trusted Reviews</h3>
               <p>
@@ -2255,8 +2278,11 @@
               </p>
             </div>
           </div>
+
           <div class="feature-box">
-            <div class="feature-icon">🚗</div>
+            <div class="feature-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
             <div>
               <h3>Flexible Learning</h3>
               <p>
