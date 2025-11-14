@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Learner’s Space</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | Learner’s Space</title>
     <style>
       :root {
         --primary-color: #ff6b35;
@@ -26,25 +27,25 @@
         color: var(--text-dark);
         margin: 0;
         padding: 0;
-        scroll-behavior: smooth;
       }
 
-      /* Navbar (same as main site) */
+      /* NAVBAR */
       nav {
         position: fixed;
         top: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.98);
-        padding: 20px 50px;
+        background: white;
+        padding: 20px 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 1000;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
       }
 
       .logo {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         font-weight: 700;
       }
 
@@ -54,8 +55,11 @@
 
       .nav-links {
         display: flex;
-        gap: 40px;
+        gap: 25px;
         list-style: none;
+        padding: 0;
+        margin: 0;
+        align-items: center;
       }
 
       .nav-links a {
@@ -81,32 +85,61 @@
         transition: width 0.3s ease;
       }
 
-      /* Contact Section */
+      /* HAMBURGER */
+      .hamburger {
+        display: none;
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        cursor: pointer;
+      }
+
+      /* MOBILE MENU */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          right: 20px;
+          top: 80px;
+          background: white;
+          flex-direction: column;
+          width: 200px;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+          display: none;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .hamburger {
+          display: block;
+        }
+      }
+
+      /* CONTACT SECTION */
       .contact-section {
-        min-height: 100vh;
-        padding: 160px 50px 100px;
-        background: var(--bg-light);
+        padding: 160px 40px 80px;
         text-align: center;
       }
 
       .contact-section h1 {
         font-size: 3rem;
         margin-bottom: 20px;
-        color: var(--text-dark);
       }
 
       .contact-section p {
         color: var(--text-light);
         max-width: 700px;
-        margin: 0 auto 60px;
-        font-size: 1.1rem;
+        margin: 0 auto 50px;
         line-height: 1.7;
+        font-size: 1.1rem;
       }
 
       .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 40px;
+        gap: 35px;
         max-width: 1000px;
         margin: 0 auto;
       }
@@ -116,7 +149,7 @@
         border-radius: 20px;
         padding: 40px 30px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
+        transition: 0.3s ease;
       }
 
       .contact-card:hover {
@@ -130,23 +163,11 @@
         border-radius: 20px;
         background: linear-gradient(135deg, var(--primary-color), #ff8c5a);
         display: flex;
-        align-items: center;
         justify-content: center;
-        font-size: 2.2rem;
-        color: white;
+        align-items: center;
         margin: 0 auto 20px;
-      }
-
-      .contact-card h3 {
-        font-size: 1.4rem;
-        color: var(--text-dark);
-        margin-bottom: 10px;
-      }
-
-      .contact-card p {
-        color: var(--text-light);
-        line-height: 1.7;
-        font-size: 1rem;
+        color: white;
+        font-size: 2rem;
       }
 
       .social-icons {
@@ -160,14 +181,13 @@
         width: 40px;
         height: 40px;
         background: var(--primary-color);
-        color: white;
         border-radius: 50%;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        color: white;
         text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s ease;
+        transition: 0.3s ease;
       }
 
       .social-icons a:hover {
@@ -178,26 +198,22 @@
       footer {
         text-align: center;
         padding: 40px;
-        background: white;
         color: var(--text-light);
-        border-top: 1px solid #e0e0e0;
+        background: white;
+        border-top: 1px solid #eee;
       }
 
-      footer .highlight {
+      .highlight {
         color: var(--primary-color);
       }
 
       @media (max-width: 768px) {
-        nav {
-          padding: 12px 20px;
-        }
-
         .contact-section {
-          padding: 120px 20px 60px;
+          padding: 130px 20px 60px;
         }
 
         .contact-section h1 {
-          font-size: 2rem;
+          font-size: 2.3rem;
         }
 
         .contact-card {
@@ -209,14 +225,23 @@
 
   <body>
     <nav>
-      <div class="logo"><span>Learner</span> <span>Space</span></div>
+      <div class="logo"><span>Learner</span> Space</div>
+
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
     </nav>
 
     <section class="contact-section">
       <h1>Contact Us</h1>
       <p>
         We’re here to help! Whether you have questions about partnerships,
-        support, or collaborations our team is always ready to assist.
+        support, or collaborations, our team is always ready to assist.
       </p>
 
       <div class="contact-grid">
@@ -233,10 +258,7 @@
             <i class="fas fa-envelope"></i>
           </div>
           <h3>Email Us</h3>
-          <p>
-            info@learnerspace.in<br />
-            We usually respond within 24 hours.
-          </p>
+          <p>info@learnerspace.in<br />We usually respond within 24 hours.</p>
         </div>
 
         <div class="contact-card">
@@ -244,29 +266,21 @@
             <i class="fas fa-globe"></i>
           </div>
           <h3>Follow Us</h3>
+
           <div class="social-icons">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              aria-label="Facebook"
-            >
+            <a href="https://facebook.com" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <a href="https://twitter.com" target="_blank">
               <i class="fab fa-x-twitter"></i>
             </a>
             <a
               href="https://www.linkedin.com/company/learnerspaceofficial/"
               target="_blank"
-              aria-label="LinkedIn"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a
-              href="https://www.instagram.com/learnerspace_ed?igsh=ZnowdHBjbHNxdzdo"
-              target="_blank"
-              aria-label="Instagram"
-            >
+            <a href="https://www.instagram.com/learnerspace_ed" target="_blank">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -277,5 +291,14 @@
     <footer>
       © 2025 <span class="highlight">Learner Space</span>. All Rights Reserved.
     </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    </script>
   </body>
 </html>
