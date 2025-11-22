@@ -1909,3 +1909,43 @@ body {
   text-decoration: none;
   text-align: center;
 }
+.solution-icon i {
+  color: #fff;
+  font-size: 2rem;
+}
+/* Default icon color (orange) */
+.feature-icon i {
+  color: var(--primary-color);
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+/* On hover, .feature-icon already gets orange background — now icon becomes white */
+.feature-box:hover .feature-icon i {
+  color: #fff;
+}
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.popup-input {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  width: 100%;
+}
+
+.submit-btn {
+  background-color: #ff6b35;
+  color: white;
+  margin-top: 10px;
+}
+
+.success-container {
+  text-align: center;
+  padding: 20px;
+}

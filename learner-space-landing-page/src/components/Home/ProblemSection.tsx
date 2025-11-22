@@ -14,6 +14,7 @@ const ProblemSection: React.FC = () => {
         <h2 className="section-title">
           The Challenge <span className="highlight">You Face</span>
         </h2>
+
         <p className="section-subtitle">
           Navigating today's crowded learning marketplace shouldn't be
           overwhelming. We understand your struggles.
@@ -27,6 +28,7 @@ const ProblemSection: React.FC = () => {
             marginTop: "60px",
           }}
         >
+          {/* CARD 1 */}
           <div
             className="problem-card"
             style={{
@@ -37,6 +39,7 @@ const ProblemSection: React.FC = () => {
             }}
           >
             <div style={{ fontSize: "3rem", marginBottom: "20px" }}>🔍</div>
+
             <h3
               style={{
                 fontSize: "1.4rem",
@@ -46,12 +49,14 @@ const ProblemSection: React.FC = () => {
             >
               Discovery Chaos
             </h3>
+
             <p style={{ color: "var(--text-light)", lineHeight: "1.7" }}>
               Finding the right course in a crowded market is like searching for
               a needle in a haystack.
             </p>
           </div>
 
+          {/* CARD 2 */}
           <div
             className="problem-card"
             style={{
@@ -62,6 +67,7 @@ const ProblemSection: React.FC = () => {
             }}
           >
             <div style={{ fontSize: "3rem", marginBottom: "20px" }}>📢</div>
+
             <h3
               style={{
                 fontSize: "1.4rem",
@@ -71,12 +77,14 @@ const ProblemSection: React.FC = () => {
             >
               Information Overload
             </h3>
+
             <p style={{ color: "var(--text-light)", lineHeight: "1.7" }}>
               Too many options, too much noise separating quality from quantity
               is exhausting.
             </p>
           </div>
 
+          {/* CARD 3 */}
           <div
             className="problem-card"
             style={{
@@ -87,6 +95,7 @@ const ProblemSection: React.FC = () => {
             }}
           >
             <div style={{ fontSize: "3rem", marginBottom: "20px" }}>🤔</div>
+
             <h3
               style={{
                 fontSize: "1.4rem",
@@ -96,6 +105,7 @@ const ProblemSection: React.FC = () => {
             >
               Platform Dependency
             </h3>
+
             <p style={{ color: "var(--text-light)", lineHeight: "1.7" }}>
               Relying on search engines and social media to find relevant
               programs limits your options.

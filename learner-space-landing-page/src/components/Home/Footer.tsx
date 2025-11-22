@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <footer>
       <div className="footer-content">
@@ -13,17 +16,29 @@ const Footer: React.FC = () => {
             learners shaping their future one skill at a time.
           </p>
           <div className="social-links">
-            <a href="#">
-              <i className="fab">f</i>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Facebook"
+              rel="noreferrer"
+            >
+              <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="#">
-              <i className="fab">t</i>
+            <a
+              href="https://www.linkedin.com/company/learnerspaceofficial/"
+              target="_blank"
+              aria-label="LinkedIn"
+              rel="noreferrer"
+            >
+              <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="#">
-              <i className="fab">in</i>
-            </a>
-            <a href="#">
-              <i className="fab">ig</i>
+            <a
+              href="https://www.instagram.com/learnerspace_ed?igsh=ZnowdHBjbHNxdzdo"
+              target="_blank"
+              aria-label="Instagram"
+              rel="noreferrer"
+            >
+              <i className="fab fa-instagram"></i>
             </a>
           </div>
         </div>
@@ -44,7 +59,15 @@ const Footer: React.FC = () => {
               <a href="#blog">Reviews</a>
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/contact");
+                }}
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </div>
@@ -56,7 +79,7 @@ const Footer: React.FC = () => {
               <a href="#">Help Center</a>
             </li>
             <li>
-              <a href="#">FAQs</a>
+              <a href="#faq">FAQs</a>
             </li>
             <li>
               <a href="#">Terms of Use</a>

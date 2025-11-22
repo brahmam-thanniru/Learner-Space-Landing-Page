@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   onOpenPopup: () => void;
@@ -7,6 +8,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onOpenPopup }) => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string>("#home");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +64,15 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenPopup }) => {
           </li>
         ))}
         <li>
-          <a href="contact.html">CONTACT</a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/contact");
+            }}
+          >
+            CONTACT
+          </a>
         </li>
       </ul>
       <div className="nav-buttons">

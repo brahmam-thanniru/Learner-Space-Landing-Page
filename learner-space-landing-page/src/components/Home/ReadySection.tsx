@@ -14,21 +14,25 @@ const ReadySection: React.FC = () => {
       <div className="ready-container">
         <div className="phones-stack">
           <div className="orange-circle"></div>
+
           <div className="stacked-phone">
             <div className="phone-screen">
-              <img src="App1.png" alt="App Screen 1" />
+              <img src="./App1.png" alt="App Screen 1" />
             </div>
           </div>
+
           <div className="stacked-phone">
             <div className="phone-screen">
-              <img src="App2.png" alt="App Screen 2" />
+              <img src="./App2.png" alt="App Screen 2" />
             </div>
           </div>
         </div>
 
         <div className="ready-features">
           <div className="feature-box">
-            <div className="feature-icon">🏢</div>
+            <div className="feature-icon">
+              <i className="fas fa-shield-alt"></i>
+            </div>
             <div>
               <h3>Trusted Reviews</h3>
               <p>
@@ -36,8 +40,11 @@ const ReadySection: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="feature-box">
-            <div className="feature-icon">🚗</div>
+            <div className="feature-icon">
+              <i className="fas fa-graduation-cap"></i>
+            </div>
             <div>
               <h3>Flexible Learning</h3>
               <p>

@@ -18,14 +18,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPopup }) => {
         >
           🚀 Try for free
         </a>
+
         <h1>
           Your Learning Journey Deserves Clarity
-          <span className="highlight"> Not Guesswork.</span>
+          <span>Not Guesswork.</span>
         </h1>
+
         <p>
           Discover your perfect learning platform personalized, unbiased, and
           ready in under 60 seconds.
         </p>
+
         <div className="download-buttons">
           <a
             href="#"
@@ -43,6 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPopup }) => {
               <div>Google Play</div>
             </div>
           </a>
+
           <a
             href="#"
             className="download-btn"
@@ -65,20 +69,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPopup }) => {
       <div className="hero-image">
         <div className="triangle-decoration triangle-1"></div>
         <div className="floating-square"></div>
-        <div className="dots-pattern">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span> <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+
         <div className="phone-mockup">
           <div className="phone-screen">
-            <img src="/App1.png" alt="Learner Space App Home Screen" />
+            <img src="./App1.png" alt="Learner Space App Home Screen" />
           </div>
         </div>
+
         <div className="triangle-decoration triangle-2"></div>
       </div>
     </section>
