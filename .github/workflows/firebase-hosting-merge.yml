@@ -1,5 +1,3 @@
-# Firebase Hosting Deploy for React (Vite) in subfolder
-
 name: Deploy React App to Firebase Hosting
 
 on:
@@ -15,20 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Setup Node (v20)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         working-directory: learner-space-landing-page
-        run: npm install
+        run: npm ci
 
       - name: Build the project
         working-directory: learner-space-landing-page
         run: npm run build
 
-      # Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
