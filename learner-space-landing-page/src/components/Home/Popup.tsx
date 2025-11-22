@@ -30,7 +30,6 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
       degree: degree,
       year_of_graduation: year,
       subject: `New Waitlist Signup from ${email}`,
-      message: `Degree: ${degree}\nYear of graduation: ${year}`,
     };
 
     try {
