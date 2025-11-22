@@ -26,6 +26,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
 
     const payload = {
       access_key: "883916d3-43fe-4d83-8369-4d02f12bd806",
+      form_type: "waitlist",
       email: email,
       degree: degree,
       year_of_graduation: year,
