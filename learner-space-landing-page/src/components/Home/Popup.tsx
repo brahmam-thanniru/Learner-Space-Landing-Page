@@ -10,10 +10,11 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
   const [degree, setDegree] = useState("");
   const [year, setYear] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email || !degree || !year) {
@@ -21,8 +22,38 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
       return;
     }
 
-    // You can integrate API here later
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    const payload = {
+      access_key: "883916d3-43fe-4d83-8369-4d02f12bd806",
+      email: email,
+      degree: degree,
+      year_of_graduation: year,
+      subject: `New Waitlist Signup from ${email}`,
+      message: `Degree: ${degree}\nYear of graduation: ${year}`,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("Submission failed. Try again later.");
+      }
+    } catch (err) {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,6 +82,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 className="popup-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
 
               <input
@@ -59,6 +91,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 className="popup-input"
                 value={degree}
                 onChange={(e) => setDegree(e.target.value)}
+                required
               />
 
               <input
@@ -67,10 +100,15 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 className="popup-input"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
+                required
               />
 
-              <button type="submit" className="popup-btn submit-btn">
-                Notify Me
+              <button
+                type="submit"
+                className="popup-btn submit-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Notify Me"}
               </button>
             </form>
           </>
@@ -78,7 +116,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
           <div className="success-container">
             <span className="popup-emoji">✅</span>
             <h3>You're on the List!</h3>
-            <p>We’ll notify you as soon as the app is live</p>
+            <p>We’ll notify you as soon as the app is live 🚀</p>
 
             <button className="popup-btn" onClick={onClose}>
               Close
