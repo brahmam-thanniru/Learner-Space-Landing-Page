@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPopup }) => {
 
         <h1>
           Your Learning Journey Deserves Clarity
-          <span>Not Guesswork.</span>
+          <span style={{ marginLeft: "10px" }}>Not Guesswork.</span>
         </h1>
 
         <p>
