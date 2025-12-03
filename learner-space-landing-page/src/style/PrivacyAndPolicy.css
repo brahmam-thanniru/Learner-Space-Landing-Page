@@ -1,0 +1,177 @@
+/* ================================
+   LEGAL PAGE STRUCTURE
+=================================== */
+
+.legal-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.legal-content {
+  max-width: 900px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================
+   TITLES & TEXT
+=================================== */
+
+.legal-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.legal-updated {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.legal-content h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.legal-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 18px;
+  color: #444;
+}
+
+.legal-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 15px;
+}
+
+.legal-content ul {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+.legal-content ul li {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* LINKS */
+.legal-content a {
+  color: #ff7a1a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+  margin: 40px 0;
+  border: none;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+/* ================================
+   DECORATIVE ELEMENTS
+   (Matches Hero Section Style)
+=================================== */
+
+.legal-decorations {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Big Triangle */
+.triangle-lg {
+  position: absolute;
+  top: -60px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #ffc08a, #ff9e5c);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  opacity: 0.25;
+}
+
+/* Floating Square */
+.floating-square-sm {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  background: #ffedd8;
+  border-radius: 12px;
+  animation: floatSquare 4s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatSquare {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+=================================== */
+
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 25px 20px;
+  }
+
+  .legal-title {
+    font-size: 1.7rem;
+  }
+
+  .triangle-lg {
+    width: 130px;
+    height: 130px;
+    right: -30px;
+    top: -40px;
+  }
+
+  .floating-square-sm {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-title {
+    font-size: 1.5rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.3rem;
+  }
+}

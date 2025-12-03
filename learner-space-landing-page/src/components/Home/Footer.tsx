@@ -85,7 +85,15 @@ const Footer: React.FC = () => {
               <a href="#">Terms of Use</a>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/privacyandpolicy");
+                }}
+              >
+                Privacy Policy
+              </a>
             </li>
           </ul>
         </div>
