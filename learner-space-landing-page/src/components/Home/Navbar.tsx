@@ -79,9 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenPopup }) => {
         <button className="btn-filled" onClick={onOpenPopup}>
           Get Started
         </button>
-        <a href="https://edtech.learnerspace.in/" className="btn-outline">
-          Edtech
-        </a>
+
       </div>
     </nav>
   );
