@@ -5,10 +5,22 @@ interface PopupProps {
   onClose: () => void;
 }
 
+interface FormData{
+  email: string;
+  degree: string;
+  year: string;
+  phoneNumber: string;
+
+}
+
 const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState("");
-  const [degree, setDegree] = useState("");
-  const [year, setYear] = useState("");
+  const [formdata, setFormData] = useState<FormData>({
+    email: "",
+    degree: "",
+    year: "",
+    phoneNumber: "",
+  })
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -16,8 +28,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!email || !degree || !year) {
+    if (!formdata.email || !formdata.degree || !formdata.year|| !formdata.phoneNumber) {
       alert("Please fill in all fields");
       return;
     }
@@ -27,10 +38,11 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
     const payload = {
       access_key: "883916d3-43fe-4d83-8369-4d02f12bd806",
       form_type: "waitlist",
-      email: email,
-      degree: degree,
-      year_of_graduation: year,
-      subject: `New Waitlist Signup from ${email}`,
+      email: formdata.email,
+      degree: formdata.degree,
+      year_of_graduation: formdata.year,
+      phone_number: formdata.phoneNumber,
+      subject: `New Waitlist Signup from ${formdata.email}`,
     };
 
     try {
@@ -80,8 +92,8 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 type="email"
                 placeholder="Email address"
                 className="popup-input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formdata.email}
+                onChange={(e) => setFormData({...formdata, email: e.target.value})}
                 required
               />
 
@@ -89,8 +101,8 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 type="text"
                 placeholder="Degree (e.g., B.Tech, MBA)"
                 className="popup-input"
-                value={degree}
-                onChange={(e) => setDegree(e.target.value)}
+                value={formdata.degree}
+                onChange={(e) => setFormData({...formdata, degree: e.target.value})}
                 required
               />
 
@@ -98,8 +110,17 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
                 type="number"
                 placeholder="Year of Graduation"
                 className="popup-input"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
+                value={formdata.year}
+                onChange={(e) => setFormData({...formdata, year: e.target.value})}
+                required
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="popup-input"
+                value={formdata.phoneNumber}
+                onChange={(e) => setFormData({...formdata, phoneNumber: e.target.value})}
                 required
               />
 
