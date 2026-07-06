@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    // We wrap everything in a container to apply the global font and background
+  
     <div className="contact-page-container">
       {/* --- Navigation --- */}
       <nav className="contact-nav">
